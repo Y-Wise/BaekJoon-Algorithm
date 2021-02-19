@@ -3,8 +3,6 @@ using namespace std;
 
 //4단계 15552
 //빠른 A+B
-
-
 void FastAplusB() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
@@ -20,3 +18,15 @@ void FastAplusB() {
 
 }
 
+//4단계 147305
+//N 찍기
+void PrintN() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int n;
+	cin >> n;
+	for (int i = 1; i <= n; i++) {
+		cout << i << "\n";
+	}
+}
