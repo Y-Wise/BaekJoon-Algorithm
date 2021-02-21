@@ -18,7 +18,7 @@ void FastAplusB() {
 
 }
 
-//4´Ü°è 147305
+//4´Ü°è 2741
 //N Âï±â
 void PrintN() {
 	ios::sync_with_stdio(false);
@@ -27,6 +27,19 @@ void PrintN() {
 	int n;
 	cin >> n;
 	for (int i = 1; i <= n; i++) {
+		cout << i << "\n";
+	}
+}
+
+//4´Ü°è 2742
+//±âÂï N
+void NPrint() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int n;
+	cin >> n;
+	for (int i = n; i >= 1; i--) {
 		cout << i << "\n";
 	}
 }
