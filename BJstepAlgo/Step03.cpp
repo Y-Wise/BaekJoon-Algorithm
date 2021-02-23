@@ -59,3 +59,19 @@ void AplusBminus7() {
 
 	}
 }
+
+//3-8´Ü°è 11022
+void AplusBminus8() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int t;
+	cin >> t;
+	int a, b, sum;
+	for (int i = 1; i <= t; i++) {
+		cin >> a >> b;
+		sum = a + b;
+		cout << "Case #" << i << ": " << a << " + " << b << " = " << sum << "\n";
+
+	}
+}
