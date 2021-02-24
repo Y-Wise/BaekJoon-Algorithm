@@ -78,6 +78,9 @@ void AplusB_8() {
 
 //3-9단계 2438
 void Star_1() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
 	int n;
 	cin >> n;
 	for (int i = 1; i <= n; i++) {
@@ -90,6 +93,9 @@ void Star_1() {
 
 //3-10단계 2439
 void Star_2() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
 	int n;
 	cin >> n;
 	for (int i = 1; i <= n; i++) {
@@ -107,6 +113,9 @@ void Star_2() {
 
 //3-11단계 10871_1
 void SmallbyX() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
 	int n, x;
 	cin >> n >> x;
 	int* seqA = new int[n];
@@ -122,4 +131,13 @@ void SmallbyX() {
 
 //3-11단계 10871_2
 void SmallbyX_2() {
+	int n, x;
+	cin >> n >> x;
+	int a;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a < x) {
+			cout << a << " ";
+		}
+	}
 }
