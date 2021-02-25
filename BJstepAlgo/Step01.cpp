@@ -9,31 +9,31 @@ void HW() {
 
 //1-2단계 10718
 void WLK() {
-	cout << "강한친구 대한육군\n"
+	cout << "강한친구 대한육군" << endl
 		<< "강한친구 대한육군";
 }
 
 //1-3단계 10171
 void Cat() {
 	cout << "\\    /\\"
-		<< "\n"
+		<< endl
 		<< " )  ( ')"
-		<< "\n"
+		<< endl
 		<< "(  /  )"
-		<< "\n"
+		<< endl
 		<< " \\(__)|";
 }
 
 //1-4단계 10172
 void Dog() {
 	cout << "|\\_/|"
-		<< "\n"
+		<< endl
 		<< "|q p|   /}"
-		<< "\n"
+		<< endl
 		<< "( 0 )\"\"\"\\"
-		<< "\n"
+		<< endl
 		<< "|\"^\"`    |"
-		<< "\n"
+		<< endl
 		<< "||_/=\\\\__|";
 }
 
@@ -73,21 +73,21 @@ void AdivB() {
 void FourCalcul() {
 	int a, b;
 	cin >> a >> b;
-	cout << a + b << endl;
-	cout << a - b << endl;
-	cout << a * b << endl;
-	cout << a / b << endl;
-	cout << a % b << endl;
+	cout << a + b << endl
+		<< a - b << endl
+		<< a * b << endl
+		<< a / b << endl
+		<< a % b << endl;
 }
 
 //1-10단계 10430
 void Remain() {
 	int A, B, C;
 	cin >> A >> B >> C;
-	cout << (A + B) % C << endl;
-	cout << ((A % C) + (B % C)) % C << endl;
-	cout << (A * B) % C << endl;
-	cout << ((A % C) * (B % C)) % C << endl;
+	cout << (A + B) % C << endl
+		<< ((A % C) + (B % C)) % C << endl
+		<< (A * B) % C << endl
+		<< ((A % C) * (B % C)) % C << endl;
 }
 
 //1-11단계 2588
@@ -100,8 +100,8 @@ void Multiplication() {
 	n4 = a * ((b / 10) % 10);
 	n5 = a * (b / 100);
 	n6 = n3 + (n4 * 10) + (n5 * 100);
-	cout << n3 << "\n"
-		<< n4 << "\n"
-		<< n5 << "\n"
+	cout << n3 << endl
+		<< n4 << endl
+		<< n5 << endl
 		<< n6;
 }
