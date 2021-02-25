@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+//=================for문=======================
 //3-4단계 15552
 //빠른 A+B
 void FastAplusB() {

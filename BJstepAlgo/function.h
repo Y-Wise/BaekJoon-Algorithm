@@ -1,4 +1,3 @@
-//Step03 for¹®
 #include<iostream>
 using namespace std;
 
@@ -11,3 +10,8 @@ void AplusB_8();
 void Star_1();
 void Star_2();
 void SmallbyX();
+
+//4th while
+void AplusB_5();
+void AplusB_4();
+void PlusCycle();
