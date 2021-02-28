@@ -6,6 +6,9 @@ using namespace std;
 //5-1단계 10818
 int arrN[1000000]{};
 void MinMax() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
 	int n{};
 	int max{}, min{};
 	cin >> n;
@@ -23,7 +26,18 @@ void MinMax() {
 }
 
 //5-2단계 2562
-
+void MaximumValue() {
+	int arrMaxN[9] = { 0 };
+	int max = 0, locaMax = 0;
+	for (int i = 0; i < 9; i++) {
+		cin >> arrMaxN[i];
+		if (arrMaxN[i] > max) {
+			max = arrMaxN[i];
+			locaMax = i + 1;
+		}
+	}
+	cout << max << endl << locaMax;
+}
 //5-3단계 2577
 
 //5-4단계 3052
