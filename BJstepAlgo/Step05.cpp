@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
 //1차원 배열
@@ -39,6 +40,33 @@ void MaximumValue() {
 	cout << max << endl << locaMax;
 }
 //5-3단계 2577
+void NumCount() {
+	int a, b, c, numABC; //정수 a, b, c, abc곱한 거
+	int count = 0; //numABC 안에 있는 숫자들 개수 세는 용도
+	int arrCount[10] = { 0 }; // 0~9의 count를 담을 배열
+
+	cin >> a >> b >> c;
+	numABC = a * b * c;
+	string stringABC = to_string(numABC); //numABC를 문자열로 바꾼 것. 최대 9자리
+	char chNum; //stringABC의 원소와 비교할 0~9..를 문자로 바꿀 변수;
+
+	for (int i = 0; i < 10; i++) {
+		//stringABC문자열의 원소 == i(int to char)인지 비교하는 반복문
+		chNum = '0' + i; //int 0~9 to Char
+
+		for (int j = 0; j < 9; j++) {
+			//stringABC의 0~8번째(=1의자리~10^9의자리) 원소까지 비교할 반복문
+
+			if (stringABC[j] == chNum) {
+				count++;
+			}
+
+		}
+		cout << count << endl;
+		count = 0;
+	}
+}
+
 
 //5-4단계 3052
 
