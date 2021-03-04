@@ -6,7 +6,7 @@ using namespace std;
 
 //5-1단계 10818
 int arrN[1000000]{};
-void MinMax() {
+void MinMaxArr() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 
@@ -27,7 +27,7 @@ void MinMax() {
 }
 
 //5-2단계 2562
-void MaximumValue() {
+void MaximumValueArr() {
 	int arrMaxN[9] = { 0 };
 	int max = 0, locaMax = 0;
 	for (int i = 0; i < 9; i++) {
@@ -39,8 +39,9 @@ void MaximumValue() {
 	}
 	cout << max << endl << locaMax;
 }
+
 //5-3단계 2577
-void NumCount() {
+void NumCountArr() {
 	int a, b, c, numABC; //정수 a, b, c, abc곱한 거
 	int count = 0; //numABC 안에 있는 숫자들 개수 세는 용도
 	int arrCount[10] = { 0 }; // 0~9의 count를 담을 배열
@@ -67,8 +68,32 @@ void NumCount() {
 	}
 }
 
-
 //5-4단계 3052
+void RemainArr() {
+	int a, b = 42, cnt = 0;
+	int arrRemain[10] = { 0 };
+	int arrCnt[42] = { 0 };
+
+	for (int i = 0; i < 10; i++) {
+		cin >> a;
+		arrRemain[i] = a % b;
+	}
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 42; j++) {
+			if (arrRemain[i] == j) {
+				arrCnt[j] += 1;
+			}
+		}
+	}
+
+	for (int i = 0; i < 42; i++) {
+		if (arrCnt[i] != 0) {
+			cnt++;
+		}
+	}
+	cout << cnt;
+}
+
 
 //5-5단계 1546
 

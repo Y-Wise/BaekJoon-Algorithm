@@ -15,3 +15,10 @@ void SmallbyX();
 void AplusB_5();
 void AplusB_4();
 void PlusCycle();
+
+
+//5th array
+void MinMaxArr();
+void MaximumValueArr();
+void NumCountArr();
+void RemainArr();
