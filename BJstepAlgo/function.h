@@ -22,3 +22,4 @@ void MinMaxArr();
 void MaximumValueArr();
 void NumCountArr();
 void RemainArr();
+void AverageArr();

@@ -95,8 +95,27 @@ void RemainArr() {
 }
 
 
-//5-5단계 1546
+// 5-5단계 1546
+//int arrTest[] = { 0 }; // 성적표
+//double modiTest[] = { 0 }; // 조작한 성적표
+//void AverageArr() {
+//	int m{ 0 }; // 성적 중 최대값
+//	double sum = 0;
+//	int n; // 과목 수
+//	double ave; // 새로운 평균
+//
+//	cin >> n;
+//
+//	for (int i = 0; i < n; i++) {
+//		m = (m > arrTest[i]) ? m : arrTest[i];
+//	}
+//
+//	for (int i = 0; i < n; i++) {
+//		modiTest[i] = (double)arrTest[i] / m * 100;
+//		sum += modiTest[i];
+//	}
+//	ave = sum / n;
+//}
+// 5-6단계 8958
 
-//5-6단계 8958
-
-//5-7단계 4344
+// 5-7단계 4344
