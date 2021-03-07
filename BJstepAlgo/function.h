@@ -24,3 +24,4 @@ void NumCountArr();
 void RemainArr();
 void AverageArr();
 void QuizeOX();
+void OverAve();

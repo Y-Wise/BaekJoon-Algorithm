@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<math.h>
 using namespace std;
 
 //1차원 배열
@@ -162,3 +163,40 @@ void QuizeOX() {
 
 
 // 5-7단계 4344
+void OverAve() {
+	const int MAX_N = 1000; // 테스티 케이스별 학생의 최대 수
+	double arrScoreN[MAX_N]{ }; // n명의 학생들의 점수
+
+	int caseN; // 테스트 케이스의 개수
+	cin >> caseN;
+
+	int n; // 학생 수
+	double sum = 0;
+	double aveScore; // 평균
+	double aveN;
+	int cnt = 0; // 평균을 넘는 학생 수
+	int c = 0;
+	while (c < caseN) {
+		cin >> n;
+		
+		for (int i = 0; i < n; i++) {
+			cin >> arrScoreN[i];
+			sum += arrScoreN[i];
+		}
+		aveScore = sum / n;
+
+		for (int i = 0; i < n; i++) {
+			if (arrScoreN[i] > aveScore) {
+				cnt++;
+			}
+		}
+
+		aveN = (double)cnt / n * 100;
+		cout << fixed;
+		cout.precision(3);
+		cout << aveN << "%" << endl;
+
+		c++;
+		sum = 0, cnt = 0; // 초기화
+	}
+}
