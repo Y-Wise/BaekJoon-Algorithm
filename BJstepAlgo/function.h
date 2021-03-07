@@ -23,3 +23,4 @@ void MaximumValueArr();
 void NumCountArr();
 void RemainArr();
 void AverageArr();
+void QuizeOX();

@@ -96,26 +96,69 @@ void RemainArr() {
 
 
 // 5-5단계 1546
-//int arrTest[] = { 0 }; // 성적표
-//double modiTest[] = { 0 }; // 조작한 성적표
-//void AverageArr() {
-//	int m{ 0 }; // 성적 중 최대값
-//	double sum = 0;
-//	int n; // 과목 수
-//	double ave; // 새로운 평균
-//
-//	cin >> n;
-//
-//	for (int i = 0; i < n; i++) {
-//		m = (m > arrTest[i]) ? m : arrTest[i];
-//	}
-//
-//	for (int i = 0; i < n; i++) {
-//		modiTest[i] = (double)arrTest[i] / m * 100;
-//		sum += modiTest[i];
-//	}
-//	ave = sum / n;
-//}
+void AverageArr() {
+	const int MAX_test = 1000;
+	int n; // 과목 수
+	double arrTest[MAX_test] = { 0 }; // 성적표
+	double modiTest[MAX_test] = { 0 }; // 조작한 성적표
+	double m{ 0 }; // 성적 중 최대값
+	double sum = 0;
+	double ave; // 새로운 평균
+
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> arrTest[i];
+		m = (arrTest[i] > m) ? arrTest[i] : m;
+	}
+
+	for (int i = 0; i < n; i++) {
+		modiTest[i] = arrTest[i] / m * 100;
+		sum += modiTest[i];
+	}
+	ave = sum / n;
+	cout << ave;
+}
+
+
 // 5-6단계 8958
+void QuizeOX() {
+	const int MAX_quize{ 80 }; // 하나의 케이스에 들어갈 퀴즈 최대 개수
+	char arrCase[MAX_quize]{}; // 케이스별 ox 배열. 널문자로 초기화
+
+	int arrScore[] = { 0 }; // 케이스별 점수 배열
+
+	int caseN; // case 수
+	cin >> caseN;
+
+	int n = 0; // while 반복문 카운트
+	int cnt = 0; // 연속된 O를 카운트
+	int sum = 0; // 최종 점수
+	while (n < caseN) {
+		cin >> arrCase;
+
+		// 케이스별 점수
+		for (int i = 0; i < MAX_quize; i++) {
+			if (arrCase[i] == '\0') {
+				break;
+			}
+			else if (arrCase[i] == 'O' || arrCase[i] == 'o') {
+				cnt++;
+			}
+			else if (arrCase[i] == 'X' || arrCase[i] == 'x') {
+				cnt = 0;
+			}
+			else {
+			}
+			sum += cnt;
+
+		}
+		cout << sum << endl;
+
+		sum = 0;
+		cnt = 0;
+		n++;
+	}
+}
+
 
 // 5-7단계 4344
