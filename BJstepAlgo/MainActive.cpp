@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 
-double arrTest[] = { 0 }; // 성적표
-double modiTest[] = { 0 }; // 조작한 성적표
-
 int main() {
-	int m{ 0 }; // 성적 중 최대값
-	double sum = 0;
+	const int MAX_test = 1000;
 	int n; // 과목 수
+	double arrTest[MAX_test] = { 0 }; // 성적표
+	double modiTest[MAX_test] = { 0 }; // 조작한 성적표
+	double m{ 0 }; // 성적 중 최대값
+	double sum = 0;
 	double ave; // 새로운 평균
 
 	cin >> n;
@@ -15,13 +15,8 @@ int main() {
 		cin >> arrTest[i];
 	}
 
-	//cout << "arrTest: " << endl;
-	//for (int i = 0; i < n; i++) {
-	//	cout << arrTest[i] << endl;
-	//}
-
 	for (int i = 0; i < n; i++) {
-		m = (m > arrTest[i]) ? m : arrTest[i];
+		m = (arrTest[i] > m) ? arrTest[i] : m;
 		cout << i << "번째 최대m: " << m << endl;
 	}
 
