@@ -145,6 +145,7 @@
     <ClCompile Include="Step04.cpp" />
     <ClCompile Include="Step05.cpp" />
     <ClCompile Include="Step06.cpp" />
+    <ClCompile Include="Step07.cpp" />
     <ClCompile Include="study.cpp" />
     <ClCompile Include="Step03.cpp" />
   </ItemGroup>
