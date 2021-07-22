@@ -23,7 +23,3 @@ void SumN() {
 
 	std::cout << sum;
 }
-
-int main() {
-	SumN();
-}
