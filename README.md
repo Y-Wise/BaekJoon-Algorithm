@@ -1,1 +1,1 @@
-# Stepbystep-Algorithm
+# BaekJoon-Algorithm
