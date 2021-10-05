@@ -139,8 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="function.h" />
-    <ClCompile Include="MainActive.cpp" />
     <ClCompile Include="Step01.cpp" />
     <ClCompile Include="Step04.cpp" />
     <ClCompile Include="Step05.cpp" />
