@@ -98,7 +98,3 @@ void Hansu() {
 	// 한수의 개수 출력
 	std::cout << cntHansu << std::endl;
 }
-
-int main() {
-	Hansu();
-}
