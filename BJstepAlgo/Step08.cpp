@@ -28,5 +28,45 @@ void BreakEvenPoint()
 	std::cout << num;
 }
 
+// 8-2´Ü°è 2292¹ø ¹úÁý
+int SumHoney(int n) {
+	int sum = 2 + 3 * (n - 1) * (n - 2);
+	return sum;
+}
+void Honeycomb() {
+	// 1 7 19 37 61
+	// 	   6 12 18 24
+	// 1 + 6¢²(n-1)
+	// 1 + 3(n-1)n-6(n-1) = numN = 1+3(n-1)(n-2)
+
+
+	// 1 2 8 20 38 ..
+	// +1 6 12 18 ..  6(k-1)
+	// n=1: 1
+	// n>1: 2+¢²6(k-1)
+	//		=2+3(n-1)(n-2)
+
+
+	int k{};
+	int n{};
+	std::cin >> n;
+	if (n == 1) {
+		k = 1;
+	}
+	else {
+		k = 2;
+		while (true) {
+			if (n >= SumHoney(k) && n < SumHoney(k + 1)) {
+				break;
+			}
+			else {
+				k++;
+			}
+		}
+	}
+	std::cout << k;
+}
+
 int main() {
+	Honeycomb();
 }
