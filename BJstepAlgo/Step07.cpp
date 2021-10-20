@@ -62,11 +62,6 @@ void Alphabet() {
 	}
 }
 
-int main() {
-	Alphabet();
-
-	return 0;
-}
 
 void Alphabet2() {
 	char S[101] = { 0, }; // 입력받을 단어 S
