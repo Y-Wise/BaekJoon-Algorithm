@@ -3,29 +3,29 @@
 // 8-1단계 1712번 손익분기점
 void BreakEvenPoint()
 {
-	// 21억 이하 자연수
-	// 고정 비용 A, 가변 비용 B, 노트북 C만원
-	int a{}, b{}, c{}; 
-	
-	std::cin >> a >> b >> c;
-	int num; // 노트북 개수 = a / (c - b);
+// 21억 이하 자연수
+// 고정 비용 A, 가변 비용 B, 노트북 C만원
+int a{}, b{}, c{};
 
-	/* 손익분기점
-	총수익 > 총비용이 최초로 발생하는 지점
-	수익 = c * num;
-	비용 = a + (b * num);
-	(c-b) * num > a;
-	num > a/(c-b);
-	*/
+std::cin >> a >> b >> c;
+int num; // 노트북 개수 = a / (c - b);
 
-	if (c - b <= 0) {
-		num = -1;
-	}
-	else {
-		num = a / (c - b) +1;
-	}
+/* 손익분기점
+총수익 > 총비용이 최초로 발생하는 지점
+수익 = c * num;
+비용 = a + (b * num);
+(c-b) * num > a;
+num > a/(c-b);
+*/
 
-	std::cout << num;
+if (c - b <= 0) {
+	num = -1;
+}
+else {
+	num = a / (c - b) + 1;
+}
+
+std::cout << num;
 }
 
 // 8-2단계 2292번 벌집
@@ -67,6 +67,90 @@ void Honeycomb() {
 	std::cout << k;
 }
 
-int main() {
-	Honeycomb();
+// 8-3단계 1193 분수찾기
+/*
+1/1: 1
+		1/2: 2 (1+1)
+1/3: 6 (1+1+4 = 1+5)
+1/4: 7 (1+1+4+1)
+1/5: 15 (1+1+4+1+8 = 1+5+9)
+1/6: 16 (1+1+4+1+8+1
+1/7: 28 (1+1+4+1+8+13 = 1+5+9+13)
+
+1/1: 1
+2/1: 3
+3/1: 4
+4/1: 10
+5/1: 11
+6/1: 21
+7/1: 22
+
+1/1: 1
+2/2: 5
+3/3: 13
+4/4: 25
+*/
+
+// 8-4단계 2869 달팽이
+void SnailUp() {
+	int v{}; // 나무 막대 높이
+	int a{}; // 낮에 올라가는 높이
+	int b{}; // 밤에 내려오는 높이
+	std::cin >> a >> b >> v;
+	//((a-b) * (date-1)) + a >= v
+	int date{1};
+	int sum{};
+
+	while (true) {
+		sum += a;
+		if (sum >= v) {
+			std::cout << date;
+			break;
+		}
+		else {
+			sum -= b;
+			date++;
+		}
+	}
 }
+
+void SnailUp2() {
+	int a, b, v;
+	std::cin >> a >> b >> v;
+	//((a-b) * (date-1)) + a >= v
+	int date{ 1 };
+	int k = a - b;
+	if (k > 0) {
+		date = ((v - a) / k) + 1;
+		if (((v - a) / k) >= 1) {
+			std::cout << date;
+		}
+		else {
+			std::cout << date+1;
+		}
+	}
+}
+
+void SnailUp3() {
+	int a, b, v;
+	std::cin >> a >> b >> v;
+	int k = a - b;
+	// (date)*a - (date-1) * b >= v
+	// date*(a-b) + b >= v
+	// date >= (v-b)/k
+	if (k > 0) {
+		int date = ((v - b) / k);
+		if (date <= 1) {
+			std::cout << date+1;
+		}
+		else {
+			std::cout << date;
+		}
+	}
+}
+
+
+int main() {
+	SnailUp3();
+}
+
