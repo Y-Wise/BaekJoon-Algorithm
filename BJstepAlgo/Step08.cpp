@@ -149,8 +149,57 @@ void SnailUp3() {
 	}
 }
 
+int WPSum(int a, int b) {
+	// k: 0층~14층, n: 1호~14호(=> 0 1.. 14 => 15칸)
+	const int MAX = 15;
+	int member[MAX][MAX] = {};
+	for (int j = 1; j < MAX; j++) {
+		member[0][j] = j;
+	}
+	int sum{};
+	for (int i = 0; i < MAX; i++) {
+		for (int j = 1; j < MAX; j++) {
+			sum += member[i][j];
+		}
+	}
+}
+
+/*
+1 1 += W(0, 1) = 0+=1 = 1
+1 2 += W
+*/
+// 8-단계 2775 부녀회장
+void WomenPresident() {
+	const int MAX = 15;
+	int T{}; // test case
+	int k{}, n{};
+
+	// 인원수
+
+
+	// test case 입력
+	std::cin >> T;
+
+	// 층 수, 호 수 입력
+	for (int i = 0; i < T; i++) {
+		std::cin >> k >> n;
+	}
+
+	// 각 집들 SUM
+
+
+	//for (int i = 0; i < k; i++) {
+	//	for (int j = 0; j < n; j++) {
+	//		std::cout << i << "층 " << j << "호: " << member[i][j] << std::endl;
+	//	}
+	//}
+	//// 해당 집의 거주민 출력
+	//for (int i = 0; i < T; i++) {
+	//}
+}
+
 
 int main() {
-	SnailUp3();
+	WomenPresident();
 }
 
