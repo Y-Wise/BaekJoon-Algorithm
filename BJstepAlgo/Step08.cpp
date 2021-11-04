@@ -67,7 +67,7 @@ void Honeycomb() {
 	std::cout << k;
 }
 
-// 8-3단계 1193 분수찾기
+// [실패] 8-3단계 1193 분수찾기
 /*
 1/1: 1
 		1/2: 2 (1+1)
@@ -91,7 +91,7 @@ void Honeycomb() {
 4/4: 25
 */
 
-// 8-4단계 2869 달팽이
+// [실패] 8-4단계 2869 달팽이
 void SnailUp() {
 	int v{}; // 나무 막대 높이
 	int a{}; // 낮에 올라가는 높이
@@ -149,26 +149,27 @@ void SnailUp3() {
 	}
 }
 
-int WPSum(int a, int b) {
-	// k: 0층~14층, n: 1호~14호(=> 0 1.. 14 => 15칸)
-	const int MAX = 15;
-	int member[MAX][MAX] = {};
-	for (int j = 1; j < MAX; j++) {
-		member[0][j] = j;
-	}
-	int sum{};
-	for (int i = 0; i < MAX; i++) {
-		for (int j = 1; j < MAX; j++) {
-			sum += member[i][j];
-		}
-	}
-}
+//int WPSum(int a, int b) {
+//	// k: 0층~14층, n: 1호~14호(=> 0 1.. 14 => 15칸)
+//	const int MAX = 15;
+//	int member[MAX][MAX] = {};
+//	for (int j = 1; j < MAX; j++) {
+//		member[0][j] = j;
+//	}
+//
+//	int sum{};
+//	for (int i = 0; i < MAX; i++) {
+//		for (int j = 1; j < MAX; j++) {
+//			sum += member[i][j];
+//		}
+//	}
+//}
 
 /*
 1 1 += W(0, 1) = 0+=1 = 1
 1 2 += W
 */
-// 8-단계 2775 부녀회장
+// [실패] 8-단계 2775 부녀회장
 void WomenPresident() {
 	const int MAX = 15;
 	int T{}; // test case
@@ -198,8 +199,9 @@ void WomenPresident() {
 	//}
 }
 
-
-int main() {
-	WomenPresident();
+// [실패] 8-8단계 10757 큰수 A+B
+void BigSum() {
+	unsigned long long int A{}, B{};
+	std::cin >> A >> B;
+	std::cout << A + B;
 }
-
