@@ -20,13 +20,13 @@ int Fibonacci5(int n) {
 	}
 }
 
-int main() {
-	int N; // 0이상의 정수
-	std::cin >> N;
-	std::cout << Fibonacci5(N);
-}
-
-//f5
-//f4+f3
-//f3+      f2 +     f2+  f1
-//f2+f1 + f1+f0  +  1+0 + 1
+//int main() {
+//	int N; // 0이상의 정수
+//	std::cin >> N;
+//	std::cout << Fibonacci5(N);
+//}
+//
+////f5
+////f4+f3
+////f3+      f2 +     f2+  f1
+////f2+f1 + f1+f0  +  1+0 + 1

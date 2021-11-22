@@ -139,15 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Step01.cpp" />
-    <ClCompile Include="Step04.cpp" />
-    <ClCompile Include="Step05.cpp" />
-    <ClCompile Include="Step06.cpp" />
-    <ClCompile Include="Step07.cpp" />
-    <ClCompile Include="Step08.cpp" />
-    <ClCompile Include="Step10.cpp" />
-    <ClCompile Include="study.cpp" />
-    <ClCompile Include="Step03.cpp" />
+    <ClCompile Include="Step\Step01.cpp" />
+    <ClCompile Include="Step\Step03.cpp" />
+    <ClCompile Include="Step\Step04.cpp" />
+    <ClCompile Include="Step\Step05.cpp" />
+    <ClCompile Include="Step\Step06.cpp" />
+    <ClCompile Include="Step\Step07.cpp" />
+    <ClCompile Include="Step\Step08.cpp" />
+    <ClCompile Include="Step\Step10.cpp" />
+    <ClCompile Include="Tutoring2021\t_1122.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
