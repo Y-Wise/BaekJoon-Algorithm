@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="Step\Step01.cpp" />
     <ClCompile Include="Step\Step03.cpp" />
     <ClCompile Include="Step\Step04.cpp" />

@@ -159,6 +159,3 @@ while (!q.empty()) { //스택이 빌 때까지 반복
 	q.pop(); // 출력한 데이터 삭제
 }
 */
-int main() {
-	StickStack();
-}
