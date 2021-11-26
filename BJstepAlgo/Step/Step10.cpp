@@ -30,3 +30,24 @@ int Fibonacci5(int n) {
 ////f4+f3
 ////f3+      f2 +     f2+  f1
 ////f2+f1 + f1+f0  +  1+0 + 1
+
+
+// 10-3´Ü°è 2447¹ø º° Âï±â - 10
+void Start10() {
+	int countStar{};
+	int k; // nÀÌ 3ÀÇ ¸î °ÅµìÁ¦°öÀÎÁö
+	int n{};
+
+	std::cin >> n;
+
+	int tempN{};
+	while (tempN == 1) {
+		countStar++;
+		tempN = n / 3;
+	}
+
+	for (int i = 0; i < tempN; i++) {
+		std::cout << "*";
+	}
+}
+

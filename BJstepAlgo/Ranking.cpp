@@ -18,7 +18,3 @@ int NumofWords() {
 
 	return numWords;
 }
-
-int main() {
-	std::cout << NumofWords();
-}

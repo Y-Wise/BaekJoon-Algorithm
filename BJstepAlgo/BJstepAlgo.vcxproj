@@ -139,16 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ranking.cpp" />
-    <ClCompile Include="Step\Step01.cpp" />
-    <ClCompile Include="Step\Step03.cpp" />
-    <ClCompile Include="Step\Step04.cpp" />
-    <ClCompile Include="Step\Step05.cpp" />
-    <ClCompile Include="Step\Step06.cpp" />
-    <ClCompile Include="Step\Step07.cpp" />
-    <ClCompile Include="Step\Step08.cpp" />
-    <ClCompile Include="Step\Step10.cpp" />
-    <ClCompile Include="Tutoring2021\t_1122.cpp" />
+    <ClCompile Include="Algorithm.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
