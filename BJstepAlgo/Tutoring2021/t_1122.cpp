@@ -186,3 +186,32 @@ void Card1() {
 	}
 }
 
+// vector
+/*
+vector<int> v;
+v.push_back; // 마지막 원소 뒤에 값을 삽입
+
+v.insert(v.end() -1, 3); // 위치를 지정하여 원소를 삽입
+
+v.pop_back(); // 마지막 원소 제거
+
+sort(v.begin(), v.end()); // [start, end) 범위에 있는 인자를 오름차순으로 정렬
+*/
+
+// 10817번 세 수
+void ThreeNumber() {
+	std::vector<int> v;
+
+	int n{};
+	for (int i = 0; i < 3; i++) {
+		std::cin >> n;
+		v.push_back(n);
+	}
+
+	sort(v.begin(), v.end());
+	std::cout << v[1];
+}
+
+int main() {
+	ThreeNumber();
+}
