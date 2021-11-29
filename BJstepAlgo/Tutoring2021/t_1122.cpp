@@ -1,6 +1,8 @@
-#include<iostream>
-#include<algorithm>
-#include<stack>
+#include <iostream>
+#include <algorithm>
+#include <stack>
+#include <queue>
+#include <vector>
 
 // 10818번 최소, 최대 -sort 이용
 void MinMaxSort1(){
@@ -147,7 +149,6 @@ void StickStack() {
 	return;
 }
 
-
 /*
 queue
 front()
@@ -159,3 +160,29 @@ while (!q.empty()) { //스택이 빌 때까지 반복
 	q.pop(); // 출력한 데이터 삭제
 }
 */
+
+
+// 요세푸스
+
+
+// 2161번 카드1
+void Card1() {
+	std::queue<int> q;
+	int N{};
+
+	std::cin >> N;
+	for (int i = 1; i <= N; i++) {
+		q.push(i);
+	}
+
+	while (!q.empty()) {
+		std::cout << q.front() << " "; // 버릴 숫자 출력
+		q.pop(); // 제일 위에 있는 숫자 out
+		if (q.empty()) break;
+		else {
+			q.push(q.front()); // 그 다음 숫자를 제일 뒤로 옮기기
+			q.pop(); // 제일 뒤로 옮긴 숫자 out
+		}
+	}
+}
+
