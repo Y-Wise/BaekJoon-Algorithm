@@ -1,13 +1,10 @@
-#include <iostream>
-#include <algorithm>
-#include <stack>
-#include <queue>
-#include <vector>
+#include "Tutoring21.h"
+//2021.11.22
 
 // 10818번 최소, 최대 -sort 이용
-void MinMaxSort1(){
+void Tutoring21::MinMaxSort1() {
 	int n{};
-	int a[1000000] = {};
+	int a[MAX] = {};
 	std::cin >> n;
 	if (n >= 1) {
 		for (int i = 0; i < n; i++) {
@@ -38,8 +35,7 @@ void MinMaxSort1(){
 //}
 
 // 10818번 최소, 최대 -min, max 이용
-#define MAX 1000000
-void MinMax() {
+void Tutoring21::MinMax() {
 	int n{}, input{}, min_num = MAX, max_num = -MAX;
 	std::cin >> n;
 
@@ -53,8 +49,6 @@ void MinMax() {
 
 	return;
 }
-
-
 
 /*
 substr() : 추출 해주는 기능
@@ -85,7 +79,7 @@ find("abcd") : "abcd"이라는 글자를 찾아줌.a가 있는 위치(인덱스)를 출력
 //}
 
 // 11721번 열 개씩 끊어 출력하기 - string.erase(0, 10)
-void StringErase() {
+void Tutoring21::StringErase() {
 	std::string str1{};
 	std::cin >> str1;
 
@@ -99,14 +93,14 @@ void StringErase() {
 	return;
 }
 
-void StringTutor() {
+void Tutoring21::StringTutor() {
 	std::string str1{};
 	std::cin >> str1;
 
 	while (true) {
 		if (str1.length() == 0) {
 			break;
-		}	
+		}
 		std::cout << str1.substr(0, 10) << std::endl;
 		str1.erase(0, 10);
 	}
@@ -128,11 +122,11 @@ while (!s.empty()) { //스택이 빌 때까지 반복
 }
 */
 // 17608번 막대기 - stack
-void StickStack() {
+void Tutoring21::StickStack() {
 	int n{}, h{}, maxH{}, cntStick{};
 	std::stack<int> s;
 	std::cin >> n;
-	for(int i = 0; i<n; i++){
+	for (int i = 0; i < n; i++) {
 		std::cin >> h;
 		s.push(h);
 	}
@@ -144,7 +138,7 @@ void StickStack() {
 		}
 		s.pop(); // 출력한 데이터 삭제
 	}
-	
+
 	std::cout << cntStick;
 	return;
 }
@@ -165,8 +159,10 @@ while (!q.empty()) { //스택이 빌 때까지 반복
 // 요세푸스
 
 
+//2021.11.29
+
 // 2161번 카드1
-void Card1() {
+void Tutoring21::Card1() {
 	std::queue<int> q;
 	int N{};
 
@@ -199,7 +195,7 @@ sort(v.begin(), v.end()); // [start, end) 범위에 있는 인자를 오름차순으로 정렬
 */
 
 // 10817번 세 수
-void ThreeNumber() {
+void Tutoring21::ThreeNumber() {
 	std::vector<int> v;
 
 	int n{};
@@ -212,6 +208,39 @@ void ThreeNumber() {
 	std::cout << v[1];
 }
 
-int main() {
-	ThreeNumber();
+
+// pair
+/*
+// pair<자료형, 자료형>
+pair<int, int> p1, p2;
+pair<string, double> p3;
+
+p1 = make_pair(3, 1);
+p2 = make_pair(1, 2);
+p1 = make_pair("test", 1.5);
+
+cf) vector + pair
+vector<pair<int, int>> v;
+v.push_back(p1); // (3, 1)이 들어감
+v.push_back(make_pair(1, 2)); // (1, 2)가 들어감)
+v.push_back({1, 3}); // (1, 3)이 들어감
+
+sort(v.begin(), v.end());
+(3,1), (1,2), (1,3) => (1,2), (1,3), (3,1)
+*/
+
+void Tutoring21::Coordinate()
+{
+	std::vector<std::pair<int, int>> v;
+	int N;
+	std::cin >> N;
+	int x{}, y{}; // 좌표
+	for (int i = 0; i < N; i++) {
+		std::cin >> x >> y;
+		v.push_back({ x, y }); // 좌표 입력
+	}
+	sort(v.begin(), v.end());
+	for (int i = 0; i < v.size(); i++) {
+		std::cout << v[i].first << " " << v[i].second << "\n";
+	}
 }
