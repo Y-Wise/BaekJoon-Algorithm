@@ -1,6 +1,7 @@
 #include "Tutoring21.h"
 //2021.11.22
 
+// sort 
 // 10818번 최소, 최대 -sort 이용
 void Tutoring21::MinMaxSort1() {
 	int n{};
@@ -17,22 +18,25 @@ void Tutoring21::MinMaxSort1() {
 	}
 	return;
 }
-// 10818번 최소, 최대 -sort 이용
-//void MinMaxSort2() {
-//	int n;
-//	std::cin >> n;
-//	//int a[n];
-//	if (n >= 1) {
-//		for (int i = 0; i < n; i++) {
-//			std::cin >> a[i];
-//		}
-//
-//		std::sort(a, a + n);
-//
-//		std::cout << a[0] << " " << a[n - 1] << std::endl;
-//	}
-//	return;
-//}
+
+/*
+10818번 최소, 최대 -sort 이용
+void MinMaxSort2() {
+	int n;
+	std::cin >> n;
+	//int a[n];
+	if (n >= 1) {
+		for (int i = 0; i < n; i++) {
+			std::cin >> a[i];
+		}
+
+		std::sort(a, a + n);
+
+		std::cout << a[0] << " " << a[n - 1] << std::endl;
+	}
+	return;
+}
+*/
 
 // 10818번 최소, 최대 -min, max 이용
 void Tutoring21::MinMax() {
@@ -50,6 +54,8 @@ void Tutoring21::MinMax() {
 	return;
 }
 
+
+// string - substr
 /*
 substr() : 추출 해주는 기능
 substr(n) = 인덱스4부터 추출
@@ -107,7 +113,7 @@ void Tutoring21::StringTutor() {
 	return;
 }
 
-
+// stack
 /*
 stack<int> s; : int형 stack
 s.push(n) : n을 넣음
@@ -143,9 +149,8 @@ void Tutoring21::StickStack() {
 	return;
 }
 
-
+// queue
 /*
-queue
 front()
 back()
 empty()
@@ -155,7 +160,6 @@ while (!q.empty()) { //스택이 빌 때까지 반복
 	q.pop(); // 출력한 데이터 삭제
 }
 */
-
 
 // 1158번 요세푸스
 void Tutoring21::Josephus()
@@ -275,5 +279,51 @@ void Tutoring21::Coordinate()
 	sort(v.begin(), v.end());
 	for (int i = 0; i < v.size(); i++) {
 		std::cout << v[i].first << " " << v[i].second << "\n";
+	}
+}
+
+
+// 시간초과 fail
+// 1764번 듣보잡
+void Tutoring21::DeutBoJob()
+{
+	// 듣, 보, 듣보 수
+	int N{}, M{},cntDeutBo{};
+	std::cin >> N >> M;
+
+	std::string deutstr;
+	std::string bostr;
+	
+	std::hash<std::string> str_hash;
+
+	std::vector<std::string> v1, v2, resV;
+
+	for (int i = 0; i < N; i++) {
+		std::cin >> deutstr;
+		v1.push_back(deutstr);
+	}
+
+	for (int i = 0; i < M; i++) {
+		std::cin >> bostr;
+		v2.push_back(bostr);
+	}
+
+	// 비교
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			if (str_hash(v1[i]) == str_hash(v2[j])){
+				cntDeutBo++;
+				resV.push_back(v1[i]);
+			}
+		}
+	}
+
+	// 정렬
+	std::sort(resV.begin(), resV.end());
+
+	// 출력
+	std::cout << cntDeutBo << "\n";
+	for (size_t i = 0; i < resV.size(); i++) {
+		std::cout << resV[i] << "\n";
 	}
 }

@@ -5,6 +5,8 @@
 #include <queue>
 #include <vector>
 #include <utility>
+#include <functional>>
+#include <string>
 
 class Tutoring21
 {
@@ -22,5 +24,6 @@ private:
 	void Card1();
 	void ThreeNumber();
 	void Coordinate();
+	void DeutBoJob();
 };
 
