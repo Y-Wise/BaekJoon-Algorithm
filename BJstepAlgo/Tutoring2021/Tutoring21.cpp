@@ -143,6 +143,7 @@ void Tutoring21::StickStack() {
 	return;
 }
 
+
 /*
 queue
 front()
@@ -156,8 +157,40 @@ while (!q.empty()) { //스택이 빌 때까지 반복
 */
 
 
-// 요세푸스
+// 1158번 요세푸스
+void Tutoring21::Josephus()
+{
+	int N{}, K{};
+	std::queue<int> q;
+	std::cin >> N >> K;
 
+	// 사람 수(N)만큼 번호 넣기
+	for (int i = 1; i <= N; i++) {
+		q.push(i);
+	}
+	
+	std::cout << "<";
+
+	// 모두 out 될 때까지 바복
+	while (!q.empty()) {
+		for (int i = 1; i < K; i++) {
+			q.push(q.front());
+			q.pop();
+		}
+
+		// K번째 사람은 out
+		if (q.size() == 1) {
+			std::cout << q.front();
+		}
+		else {
+			std::cout << q.front() << ", ";
+		}
+
+		q.pop();
+
+	}
+	std::cout << ">";
+}
 
 //2021.11.29
 

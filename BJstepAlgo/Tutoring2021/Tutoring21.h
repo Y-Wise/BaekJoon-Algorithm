@@ -17,6 +17,8 @@ private:
 	void StringErase();
 	void StringTutor();
 	void StickStack();
+	void Josephus();
+
 	void Card1();
 	void ThreeNumber();
 	void Coordinate();
