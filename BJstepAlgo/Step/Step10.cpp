@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include<iostream>
 #include<cmath>
 // 10-1단계 10872 팩토리얼
