@@ -1,4 +1,6 @@
+#include "stdafx.h"
 #include<iostream>
+#include<cmath>
 // 10-1단계 10872 팩토리얼
 // n*(n-1)*(n-2)*...2*1
 int Factorial(int n) {
@@ -33,21 +35,39 @@ int Fibonacci5(int n) {
 
 
 // 10-3단계 2447번 별 찍기 - 10
-void Start10() {
-	int countStar{};
-	int k; // n이 3의 몇 거듭제곱인지
-	int n{};
+void RecurStar10(int n) {
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (i == 2 && j == 2) {
+				std::cout << " ";
+			}
+			else {
+				std::cout << "*";
+			}
+		}
 
-	std::cin >> n;
 
-	int tempN{};
-	while (tempN == 1) {
-		countStar++;
-		tempN = n / 3;
 	}
 
-	for (int i = 0; i < tempN; i++) {
-		std::cout << "*";
+}
+
+void Star10() { 
+	int n{};
+	int k{}; // n이 3의 몇 거듭제곱인지 1 <= k < 8
+	std::cin >> n;
+	for (int i = 1; i < 8; i++) {
+		if (std::pow(3, i) == n) {
+			k = i;
+		}
+	}
+
+
+	for (int i = 0; i < n; i++) {
+		RecurStar10(n);
 	}
 }
 
+int main() {
+	Star10();
+	return 0;
+}
