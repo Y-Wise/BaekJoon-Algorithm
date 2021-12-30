@@ -37,15 +37,14 @@ int Fibonacci5(int n) {
 void RecurStar10(int n) {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			if (i == 2 && j == 2) {
+			if (i == 1 && j == 1) {
 				std::cout << " ";
 			}
 			else {
 				std::cout << "*";
 			}
 		}
-
-
+		std::cout << "\n";
 	}
 
 }
@@ -67,6 +66,6 @@ void Star10() {
 }
 
 int main() {
-	Star10();
+	RecurStar10(27);
 	return 0;
 }
