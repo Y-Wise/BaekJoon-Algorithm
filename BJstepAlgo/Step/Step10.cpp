@@ -35,8 +35,8 @@ int Fibonacci5(int n) {
 
 // 10-3단계 2447번 별 찍기 - 10
 void RecurStar10(int n) {
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
+	for (int i = 0; i < n / 3; i++) {
+		for (int j = 0; j < n / 3; j++) {
 			if (i == 1 && j == 1) {
 				std::cout << " ";
 			}
@@ -46,26 +46,44 @@ void RecurStar10(int n) {
 		}
 		std::cout << "\n";
 	}
-
 }
 
 void Star10() { 
 	int n{};
 	int k{}; // n이 3의 몇 거듭제곱인지 1 <= k < 8
 	std::cin >> n;
-	for (int i = 1; i < 8; i++) {
-		if (std::pow(3, i) == n) {
-			k = i;
-		}
-	}
+
+	RecurStar10(n);
+}
 
 
-	for (int i = 0; i < n; i++) {
-		RecurStar10(n);
+
+// 10-4단계 11729번 하노이 탑 이동 순서
+/*
+n=1: 1/0/0  -> 0/0/1
+n=2: 1.2 // 		
+
+
+*/
+#include<queue>
+void MovingHanoi(int n) {
+	
+	std::cout << " " << "\n";
+
+}
+
+void OrderOfHanoitop() {
+	int n;
+	std::cin >> n;
+	std::queue<int> q;
+	
+	for (int i = 1; i <= n; i++) {
+		q.push(i);
 	}
+
+	MovingHanoi(n);
 }
 
 int main() {
-	RecurStar10(27);
 	return 0;
 }
