@@ -167,12 +167,43 @@ void WordStudy() {
 
 //7-5단계 1157 단어공부
 void WordStudy2() {
-	//std::sort(cntAlphabet[0], cntAlphabet[25]); //정렬
+
+
+	//1. string을 벡터로 입력 받기(소문자는 대문자로 바꾸기)
+	std::string word{}; //입력받을 단어
+	std::cin >> word;
+
+	std::vector<char> wordV{};
+	for (int i = 0; i < word.length(); i++) {
+		if ((int)word[i] >= 97 && (int)word[i] <= 122) {
+			wordV.push_back(word[i]-32);
+		}
+		else {
+			wordV.push_back(word[i]);
+		}
+	}
+
+	//2. word벡터를 abc순서로 정렬
+	std::sort(wordV.begin(), wordV.end());
+
+	//3. 같은 구간들 카운트하고 벡터로 입력 받기
+	std::vector<int> cntWord{};
+
+	//4. 카운트 벡터 정렬
+	std::sort(cntWord.begin(), cntWord.end(), cntWord.end());
+	//5-1. 카운트 벡터의 최대값에 같은 값이 있으면 : ?
+	//5-2. 없으면 최대값 출력
+	if (std::binary_search(cntWord.begin(), cntWord.end(), cntWord.end())) {
+		std::cout << "?";
+	}
+	else {
+		std::cout << cntWord.end()-1;
+	}
 
 }
 
 
 int main() {
-	WordStudy();
+	WordStudy2();
 	return 0;
 } 
