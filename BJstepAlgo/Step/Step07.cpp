@@ -166,44 +166,70 @@ void WordStudy() {
 
 
 //7-5단계 1157 단어공부
-void WordStudy2() {
+void WordStrudy2() {
+	// 아스키코드 : 대문자(65~90), 소문자(97~122)
 
-
-	//1. string을 벡터로 입력 받기(소문자는 대문자로 바꾸기)
-	std::string word{}; //입력받을 단어
+	// 1. 단어 입력
+	std::string word{};
 	std::cin >> word;
 
-	std::vector<char> wordV{};
+	// 2. 알파벳별로 사용된 개수 세기
+	int cntAlp[26] = { 0 }; //사용된 알파벳
+
 	for (int i = 0; i < word.length(); i++) {
-		if ((int)word[i] >= 97 && (int)word[i] <= 122) {
-			wordV.push_back(word[i]-32);
+
+		if (word[i] >= 65 && word[i] <= 90) {
+			cntAlp[word[i]-65]++; //대문자일 때
+		}
+		else if (word[i] >= 97 && word[i] <= 122) {
+			cntAlp[word[i]-97]++; //소문자일 때
 		}
 		else {
-			wordV.push_back(word[i]);
+			std::cout << "not Alphabet\n";
 		}
 	}
 
-	//2. word벡터를 abc순서로 정렬
-	std::sort(wordV.begin(), wordV.end());
+	// 3. 최다 알파벳 찾기(동시에 maxCnt가 2개 이상이면 -1로 리턴)
+	int maxCnt{}; //최대 알파벳 개수
+	int maxPos{}; //최대 알파벳이 뭔지 찾는 위치
 
-	//3. 같은 구간들 카운트하고 벡터로 입력 받기
-	std::vector<int> cntWord{};
+	for (int i = 0; i < 26; i++) {
+		if (cntAlp[i] >= maxCnt) {
+			if (cntAlp[i] == maxCnt) {
+				maxPos = -1;
+			}
+			else {
+				maxCnt = cntAlp[i];
+				maxPos = i;
+			}
+		}
+	}
 
-	//4. 카운트 벡터 정렬
-	std::sort(cntWord.begin(), cntWord.end(), cntWord.end());
-	//5-1. 카운트 벡터의 최대값에 같은 값이 있으면 : ?
-	//5-2. 없으면 최대값 출력
-	if (std::binary_search(cntWord.begin(), cntWord.end(), cntWord.end())) {
+	// 4. 결과
+	if (maxPos == -1) {
 		std::cout << "?";
 	}
 	else {
-		std::cout << cntWord.end()-1;
+		std::cout << (char)(maxPos + 65);
 	}
-
 }
 
+//7-6단계 1152 단어의 개수 
+int NumofWords() {
+	int numWords{};
+	std::string inputString{};
+	std::getline(std::cin, inputString);
 
-int main() {
-	WordStudy2();
-	return 0;
-} 
+	for (int countChar = 1; countChar < inputString.length() - 1; countChar++) {
+		if (inputString[countChar - 1] != ' ' && inputString[countChar] == ' ' && inputString[countChar + 1] != ' ') {
+			numWords++;
+		}
+	}
+
+	if (inputString != " ") {
+		numWords++;
+	}
+
+	return numWords;
+}
+

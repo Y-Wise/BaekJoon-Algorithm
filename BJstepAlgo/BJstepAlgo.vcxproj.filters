@@ -51,9 +51,6 @@
     <ClCompile Include="BruteforceAlgo.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Ranking.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tutoring2021\Tutoring21.h">
