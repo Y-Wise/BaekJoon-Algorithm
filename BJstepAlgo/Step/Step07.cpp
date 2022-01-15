@@ -104,7 +104,32 @@ void Alphabet2() {
 
 
 //7-4단계 2675 문자열 반복
+void RepeatStr() {
+	std::string s{};
+	int r{}, t{};
+	std::vector<char> vecP{};
+	std::cin >> t;
 
+	int cnt = 0;
+	while (cnt != t) {
+		std::cin >> r >> s;
+
+		for (int i = 0; i < s.length(); i++)
+		{
+			for (int j = 0; j < r; j++) {
+				vecP.push_back(s[i]);
+			}
+		}
+
+		for (int i = 0; i < vecP.size(); i++)
+		{
+			std::cout << vecP[i];
+		}
+
+		vecP.clear();
+		cnt++;
+	}
+}
 
 
 //7-5단계 1157 단어공부
@@ -164,8 +189,6 @@ void WordStudy() {
 	}
 }
 
-
-//7-5단계 1157 단어공부
 void WordStrudy2() {
 	// 아스키코드 : 대문자(65~90), 소문자(97~122)
 
@@ -233,3 +256,6 @@ int NumofWords() {
 	return numWords;
 }
 
+int main() {
+	RepeatStr();
+}
