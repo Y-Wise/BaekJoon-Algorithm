@@ -105,29 +105,19 @@ void Alphabet2() {
 
 //7-4단계 2675 문자열 반복
 void RepeatStr() {
-	std::string s{};
-	int r{}, t{};
-	std::vector<char> vecP{};
+	int t{};
 	std::cin >> t;
-
-	int cnt = 0;
-	while (cnt != t) {
-		std::cin >> r >> s;
-
-		for (int i = 0; i < s.length(); i++)
-		{
-			for (int j = 0; j < r; j++) {
-				vecP.push_back(s[i]);
+	for (int i = 0; i < t; i++) {
+		int r;
+		std::string s;
+		std::cin >> r;
+		std::cin >> s;
+		for (int j = 0; j < s.length(); j++) {
+			for (int k = 0; k < r; k ++ ) {
+				std::cout << s[k];
 			}
+			std::cout << "\n";
 		}
-
-		for (int i = 0; i < vecP.size(); i++)
-		{
-			std::cout << vecP[i];
-		}
-
-		vecP.clear();
-		cnt++;
 	}
 }
 
