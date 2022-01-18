@@ -105,7 +105,7 @@ void Alphabet2() {
 
 //7-4단계 2675 문자열 반복
 void RepeatStr() {
-	int t{};
+	int t;
 	std::cin >> t;
 	for (int i = 0; i < t; i++) {
 		int r;
@@ -114,10 +114,10 @@ void RepeatStr() {
 		std::cin >> s;
 		for (int j = 0; j < s.length(); j++) {
 			for (int k = 0; k < r; k ++ ) {
-				std::cout << s[k];
+				std::cout << s[j];
 			}
-			std::cout << "\n";
 		}
+		std::cout << "\n";
 	}
 }
 
@@ -227,6 +227,7 @@ void WordStrudy2() {
 	}
 }
 
+
 //7-6단계 1152 단어의 개수 
 int NumofWords() {
 	int numWords{};
@@ -246,6 +247,26 @@ int NumofWords() {
 	return numWords;
 }
 
+
+//7-7단계 2908 상수
+void SangSu() {
+	std::string first, second;
+	std::cin >> first >> second;
+	std::reverse(first.begin(), first.end());
+	std::reverse(second.begin(), second.end());
+	int firstSu, secondSu;
+	firstSu = std::stoi(first);
+	secondSu = std::stoi(second);
+	if (firstSu >= secondSu) {
+		std::cout << firstSu;
+	}
+	else {
+		std::cout << secondSu;
+	}
+}
+
+
 int main() {
-	RepeatStr();
+	SangSu();
+	return 0;
 }
