@@ -189,42 +189,42 @@ void WordStrudy2() {
 	// 2. 알파벳별로 사용된 개수 세기
 	int cntAlp[26] = { 0 }; //사용된 알파벳
 
-	for (int i = 0; i < word.length(); i++) {
+for (int i = 0; i < word.length(); i++) {
 
-		if (word[i] >= 65 && word[i] <= 90) {
-			cntAlp[word[i]-65]++; //대문자일 때
-		}
-		else if (word[i] >= 97 && word[i] <= 122) {
-			cntAlp[word[i]-97]++; //소문자일 때
-		}
-		else {
-			std::cout << "not Alphabet\n";
-		}
+	if (word[i] >= 65 && word[i] <= 90) {
+		cntAlp[word[i] - 65]++; //대문자일 때
 	}
-
-	// 3. 최다 알파벳 찾기(동시에 maxCnt가 2개 이상이면 -1로 리턴)
-	int maxCnt{}; //최대 알파벳 개수
-	int maxPos{}; //최대 알파벳이 뭔지 찾는 위치
-
-	for (int i = 0; i < 26; i++) {
-		if (cntAlp[i] >= maxCnt) {
-			if (cntAlp[i] == maxCnt) {
-				maxPos = -1;
-			}
-			else {
-				maxCnt = cntAlp[i];
-				maxPos = i;
-			}
-		}
-	}
-
-	// 4. 결과
-	if (maxPos == -1) {
-		std::cout << "?";
+	else if (word[i] >= 97 && word[i] <= 122) {
+		cntAlp[word[i] - 97]++; //소문자일 때
 	}
 	else {
-		std::cout << (char)(maxPos + 65);
+		std::cout << "not Alphabet\n";
 	}
+}
+
+// 3. 최다 알파벳 찾기(동시에 maxCnt가 2개 이상이면 -1로 리턴)
+int maxCnt{}; //최대 알파벳 개수
+int maxPos{}; //최대 알파벳이 뭔지 찾는 위치
+
+for (int i = 0; i < 26; i++) {
+	if (cntAlp[i] >= maxCnt) {
+		if (cntAlp[i] == maxCnt) {
+			maxPos = -1;
+		}
+		else {
+			maxCnt = cntAlp[i];
+			maxPos = i;
+		}
+	}
+}
+
+// 4. 결과
+if (maxPos == -1) {
+	std::cout << "?";
+}
+else {
+	std::cout << (char)(maxPos + 65);
+}
 }
 
 
@@ -265,6 +265,7 @@ void SangSu() {
 	}
 }
 
+
 //7-8단계 5622 다이얼
 void Dial() {
 	//아스키코드 A =  65
@@ -283,6 +284,96 @@ void Dial() {
 		else if (word[i] < 91) { sum += 10; } //9
 		else {}
 	}
+	std::cout << sum;
+}
+
+
+//7-9단계 2941 크로아티아 알파벳
+void CroatiaAlp1(){
+	std::string word{};
+	std::cin >> word;
+	int cntCro{};
+	int cntalp{};
+	//c, d, z, l, j, n, s, z
+	//c: -, =
+	//d: z=, -
+	//l, n: j
+	//s: =
+	//z: =
+	/*
+	j, -, =를 찾기
+	j앞에 l || n가 있으면 true
+	-앞에 c || d가 있으면 true
+	=앞에 c || s || z가 있으면 true
+	=앞에 z && z앞에 d가 있으면 true
+	*/
+	for (int i = 0; i < word.length(); i++) {
+		if (word[i] == 'c') {
+			if (word[i + 1] == '-' || word[i + 1] == '=') {
+				cntCro++;
+			}
+			else {
+				cntalp++;
+			}
+		}
+		else if(word[i] == 'd'){
+			if (word[i + 1] == '-') {
+				cntCro++;
+			}
+			else if (word[i + 1] == 'z'){
+				if (word[i + 2] == '=') {
+					cntCro++;
+				}
+				else {
+					cntalp++;
+				}
+			}
+			else {
+				cntalp++;
+			}
+		}
+		else if (word[i] == 'l' || word[i] == 'n') {
+			if (word[i + 1] == 'j') {
+				cntCro++;
+			}
+			else {
+				cntalp++;
+			}
+		}
+		else if (word[i] == 's') {
+			if (word[i + 1] == '=') {
+				cntCro++;
+			}
+			else {
+				cntalp++;
+			}
+		}
+		else if (word[i] == 'z') {
+			if (word[i + 1] == '='){
+				if (word[i - 1] != 'd') {
+					cntCro++;
+				}
+				else {
+					//'dz='에서 cntCro++ 했으므로 패스
+				}
+			}
+			else {
+				cntalp++;
+			}
+		}
+		else {
+			if (word[i] == 'j') {
+				if (word[i - 1] == 'l' || word[i - 1] == 'n') continue;
+				else cntalp++;
+			}
+			else if (word[i] == '-' || word[i] == '=') continue;
+			else {
+				cntalp++;
+			}
+		}
+	}
+	int sum = cntCro + cntalp;
+	std::cout << "cntCro: " << cntCro << ", cntalp: " << cntalp << std::endl;
 	std::cout << sum;
 }
 
