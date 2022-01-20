@@ -265,8 +265,27 @@ void SangSu() {
 	}
 }
 
+//7-8단계 5622 다이얼
+void Dial() {
+	//아스키코드 A =  65
+	std::string word;
+	std::cin >> word;
+	int sum{};
+	for (int i = 0; i < word.length(); i++) {
+		if (word[i] < 65) {}
+		else if (word[i] < 68) { sum += 3; } //2
+		else if (word[i] < 71) { sum += 4; } //3
+		else if (word[i] < 74) { sum += 5; } //4
+		else if (word[i] < 77) { sum += 6; } //5
+		else if (word[i] < 80) { sum += 7; } //6
+		else if (word[i] < 84) { sum += 8; } //7
+		else if (word[i] < 87) { sum += 9; } //8
+		else if (word[i] < 91) { sum += 10; } //9
+		else {}
+	}
+	std::cout << sum;
+}
 
 int main() {
-	SangSu();
 	return 0;
 }
