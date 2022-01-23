@@ -377,6 +377,53 @@ void CroatiaAlp1(){
 	std::cout << sum;
 }
 
+void CroatiaAlp2() {
+	std::string word{};
+	std::cin >> word;
+
+	std::string tokens[] = {"dz=", "z=", "lj", "nj", "s=", "d-", "c=", "c-"};
+	for (std::string &i : tokens) {
+		while (word.find(i) != std::string::npos) {
+			/* static const size_t npos = -1; */
+			word.replace(word.find(i), i.size(), "*");
+		}
+	}
+}
+
+
+//7-10단계 1316 그룹 단어 체커
+void GroupWChecker() {
+	int num; // 단어 개수
+	std::string words;
+	std::cin >> num;
+	int cnt = num;
+	if (num <= 100) {
+		for (int n = 0; n < num; n++) {
+			std::cin >> words;
+			/*for (int pos = 0; pos < words.length(); pos++) {
+				int i = 1;
+				if (words[pos] != words[pos + i]) {
+					i++;
+					continue;
+				}
+				else {
+
+				}
+
+
+				for (int j = 1; j < words.length() - pos; j++) {
+					if (words[pos] == words[pos + j]) {
+						cnt--;
+					}
+					else{
+					}
+				}
+			}*/
+		}
+	}
+
+}
+
 int main() {
 	return 0;
 }
