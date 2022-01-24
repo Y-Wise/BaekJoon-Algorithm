@@ -90,6 +90,36 @@ void Honeycomb() {
 3/3: 13
 4/4: 25
 */
+void FindBunsoo() {
+	int x{};
+	int bunja, bunmo{}; // 분자, 분모
+	std::cin >> x;
+	int nth{}; // 대각선의 몇 번째 줄에 해당하는지
+
+	// nth 찾기
+	int i = 1;
+	while (true) {
+		int temp = i * (i + 1) / 2;
+		if (temp >= x) {
+			nth = i;
+			break;
+		}
+		i++;
+	}
+	int preSum = (nth - 1) * nth / 2; // nth 직전줄까지의 합
+	int sub = x - preSum - 1; // nth번째 줄의 몇 번째에 해당하는지 - 1
+	// 대각선이 홀짝의 몇 번째인지
+	if (nth % 2 == 0) {
+		bunmo = nth - sub;
+		bunja = 1 + sub;
+	}
+	else {
+		bunja = nth - sub;
+		bunmo = 1 + sub;
+	}
+
+	std::cout << bunja << "/" << bunmo;
+}
 
 // [실패] 8-4단계 2869 달팽이
 void SnailUp() {
@@ -204,4 +234,9 @@ void BigSum() {
 	unsigned long long int A{}, B{};
 	std::cin >> A >> B;
 	std::cout << A + B;
+}
+
+int main() {
+	FindBunsoo();
+	return 0;
 }

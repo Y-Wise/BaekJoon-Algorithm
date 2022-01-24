@@ -423,7 +423,3 @@ void GroupWChecker() {
 	}
 
 }
-
-int main() {
-	return 0;
-}
