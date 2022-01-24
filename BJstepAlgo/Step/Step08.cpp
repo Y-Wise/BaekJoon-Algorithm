@@ -100,19 +100,18 @@ void FindBunsoo() {
 	int i = 1;
 	while (true) {
 		int temp = i * (i + 1) / 2;
-		if (temp > x) {
+		if (temp >= x) {
 			nth = i;
 			break;
 		}
 		i++;
 	}
-
 	int preSum = (nth - 1) * nth / 2; // nth 직전줄까지의 합
-	int sub = nth - preSum - 1;
+	int sub = x - preSum - 1; // nth번째 줄의 몇 번째에 해당하는지 - 1
 	// 대각선이 홀짝의 몇 번째인지
 	if (nth % 2 == 0) {
 		bunmo = nth - sub;
-		bunja = 1  + sub;
+		bunja = 1 + sub;
 	}
 	else {
 		bunja = nth - sub;
@@ -120,36 +119,6 @@ void FindBunsoo() {
 	}
 
 	std::cout << bunja << "/" << bunmo;
-
-	/*
-	1, 5, 8, //	1,, 1, 2, 4, 7, 11,
-	*/
-	//int x{};
-	//int bunja, bunmo{}; // 분자, 분모
-	//std::cin >> x;
-
-	//int sqrd{};
-	//if ((x - 1) % 4 == 0) {
-	//	//가운데 줄에 해당
-	//	sqrd = (x - 1) / 4 + 1;
-	//	bunja = sqrd;
-	//	bunmo = sqrd;
-	//}
-	//else {
-	//	int q{}, r{}; // 몫, 나머지
-	//	q = (x - 1) / 4; // 몫 : 가운데 줄의 몇 번째에 해당하는지 체크하기 위해
-	//	r = (x - 1) % 4;
-
-	//	if (x < 1 + 4 * ( q+1)) {
-
-	//	}
-	//	else {
-
-	//	}
-
-	//	bunmo = +r;
-	//	bunja = -r;
-	//}
 }
 
 // [실패] 8-4단계 2869 달팽이
