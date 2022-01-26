@@ -121,62 +121,45 @@ void FindBunsoo() {
 	std::cout << bunja << "/" << bunmo;
 }
 
-// [실패] 8-4단계 2869 달팽이
+// [실패-시간초과] 8-4단계 2869 달팽이
 void SnailUp() {
-	int v{}; // 나무 막대 높이
-	int a{}; // 낮에 올라가는 높이
-	int b{}; // 밤에 내려오는 높이
-	std::cin >> a >> b >> v;
-	//((a-b) * (date-1)) + a >= v
-	int date{1};
-	int sum{};
+	int v{}; // 막대기 높이
+	int a{}; // 낮에 오르는 높이
+	int b{}; // 밤에 내려가는 높이
 
+	int days{};
+	std::cin >> a >> b >> v;
+	int sum{};
 	while (true) {
+		days++;
 		sum += a;
 		if (sum >= v) {
-			std::cout << date;
 			break;
 		}
-		else {
-			sum -= b;
-			date++;
-		}
+		sum -= b;
 	}
+
+	std::cout << days;
 }
 
 void SnailUp2() {
-	int a, b, v;
+	int v{}; // 막대기 높이
+	int a{}; // 낮에 오르는 높이
+	int b{}; // 밤에 내려가는 높이
+	int days{};
 	std::cin >> a >> b >> v;
-	//((a-b) * (date-1)) + a >= v
-	int date{ 1 };
-	int k = a - b;
-	if (k > 0) {
-		date = ((v - a) / k) + 1;
-		if (((v - a) / k) >= 1) {
-			std::cout << date;
-		}
-		else {
-			std::cout << date+1;
-		}
-	}
-}
 
-void SnailUp3() {
-	int a, b, v;
-	std::cin >> a >> b >> v;
-	int k = a - b;
-	// (date)*a - (date-1) * b >= v
-	// date*(a-b) + b >= v
-	// date >= (v-b)/k
-	if (k > 0) {
-		int date = ((v - b) / k);
-		if (date <= 1) {
-			std::cout << date+1;
-		}
-		else {
-			std::cout << date;
+	// 1 ≤ B < A ≤ V ≤ 1,000,000,000
+	if (a > b && v >= a) {
+		days = (v - b) / (a - b);
+
+		if ((v - b) % (a - b) != 0) { // 다음 날에 더 올라가야 할 때
+			days++;
 		}
 	}
+
+	std::cout << days;
+	// Case 3 : 100 99 1,000,000,000 => 999,999,901
 }
 
 //int WPSum(int a, int b) {
@@ -237,6 +220,6 @@ void BigSum() {
 }
 
 int main() {
-	FindBunsoo();
+	SnailUp2();
 	return 0;
 }
