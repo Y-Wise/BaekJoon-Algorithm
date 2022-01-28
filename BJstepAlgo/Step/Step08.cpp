@@ -148,7 +148,7 @@ void SnailUp2() {
 	int b{}; // ¹ã¿¡ ³»·Á°¡´Â ³ôÀÌ
 	int days{};
 	std::cin >> a >> b >> v;
-
+ 
 	// 1 ¡Â B < A ¡Â V ¡Â 1,000,000,000
 	if (a > b && v >= a) {
 		days = (v - b) / (a - b);
@@ -161,6 +161,56 @@ void SnailUp2() {
 	std::cout << days;
 	// Case 3 : 100 99 1,000,000,000 => 999,999,901
 }
+
+
+#include <vector>
+// 8-5´Ü°è 10250 ACM È£ÅÚ
+void ACMHotel() {
+	int t{}; // Å×½ºÆ® µ¥ÀÌÅÍ
+	int h{}, w{}, n{}; // Ãþ ¼ö, Ãþº° ¹æ °³¼ö, ¸î ¹øÂ° ¼Õ´Ô
+	std::cin >> t;
+	std::vector<std::vector<int>> testCase;
+	for (int i = 0; i < t; i++) {
+		std::vector<int> v;
+
+		std::cin >> h >> w >> n;
+		v.push_back(h);
+		v.push_back(w);
+		v.push_back(n);
+
+		testCase.push_back(v);
+	}
+
+	//for (int i = 0; i < testCase.size(); i++) {
+	//	for (int j = 0; j < testCase[0].size(); j++) {
+	//		std::cout << "testCase[" << i << "][" << j << "] : " << testCase[i][j] << ", ";
+	//	}
+	//	std::cout << std::endl;
+	//}
+
+	int quotient;
+	int remain;
+	int roomNum;
+	for (int i = 0; i < t; i++) {
+		quotient = testCase[i][2] / testCase[i][0] + 1;
+		remain = testCase[i][2] % testCase[i][0];
+		roomNum = remain * 100 + quotient;
+		std::cout << roomNum << std::endl;
+	}
+}
+/*
+* 
+
+  	int quotient = n / h + 1;
+	int remain = n % h;
+	int roomNum = remain * 100 + quotient;
+	std::cout << roomNum << std::endl;
+
+101 201 301 ... h01
+102 202 302 ... h02
+103 203 303 ... h03
+*/
+
 
 //int WPSum(int a, int b) {
 //	// k: 0Ãþ~14Ãþ, n: 1È£~14È£(=> 0 1.. 14 => 15Ä­)
@@ -220,6 +270,6 @@ void BigSum() {
 }
 
 int main() {
-	SnailUp2();
+	ACMHotel();
 	return 0;
 }
