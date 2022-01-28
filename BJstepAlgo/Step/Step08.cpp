@@ -168,6 +168,28 @@ void SnailUp2() {
 void ACMHotel() {
 	int t{}; // 테스트 데이터
 	int h{}, w{}, n{}; // 층 수, 층별 방 개수, 몇 번째 손님
+	int floor{}; // xx 나머지
+	int room{}; // yy 몫
+	int roomNum{}; // xxyy
+	std::cin >> t;
+	for (int i = 0; i < t; i++) {
+		std::cin >> h >> w >> n;
+		if (n % h == 0) {
+			floor = h;  // 층의 꼭대기에 해당할 때
+			room = n / h; // 방 호
+		}
+		else{
+			floor = n % h; // 방 층
+			room = n / h + 1; // 방 호
+		}
+		roomNum = floor * 100 + room;
+		std::cout << roomNum << std::endl;
+	}
+}
+
+void FailAcmHotel() {
+	int t{}; // 테스트 데이터
+	int h{}, w{}, n{}; // 층 수, 층별 방 개수, 몇 번째 손님
 	std::cin >> t;
 	std::vector<std::vector<int>> testCase;
 	for (int i = 0; i < t; i++) {
@@ -188,9 +210,9 @@ void ACMHotel() {
 	//	std::cout << std::endl;
 	//}
 
-	int quotient;
-	int remain;
-	int roomNum;
+	int quotient{};
+	int remain{};
+	int roomNum{};
 	for (int i = 0; i < t; i++) {
 		quotient = testCase[i][2] / testCase[i][0] + 1;
 		remain = testCase[i][2] % testCase[i][0];
