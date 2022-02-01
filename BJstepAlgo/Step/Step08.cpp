@@ -141,7 +141,6 @@ void SnailUp() {
 
 	std::cout << days;
 }
-
 void SnailUp2() {
 	int v{}; // 막대기 높이
 	int a{}; // 낮에 오르는 높이
@@ -188,7 +187,7 @@ void ACMHotel() {
 }
 
 
-// 8-단계 2775 부녀회장
+// 8-6단계 2775 부녀회장
 void WomenPresident() {
 	const int MAX = 15;
 	int apart[15][15] = { 0, }; // 아파트
@@ -227,6 +226,15 @@ void WomenPresident() {
 }
 
 
+// 8-7단계 2839 설탕배달
+void SugarPlant() {
+	int N{}; // 배달해야하는 설탕 N kg
+	std::cin >> N;
+	int bongji{};
+
+}
+
+
 // [실패] 8-8단계 10757 큰수 A+B
 void BigSum() {
 	unsigned long long int A{}, B{};
@@ -235,6 +243,9 @@ void BigSum() {
 }
 
 int main() {
-	WomenPresident();
+	while (true) {
+		SugarPlant();
+
+	}
 	return 0;
 } 
