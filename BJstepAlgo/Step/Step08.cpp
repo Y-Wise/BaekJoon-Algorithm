@@ -187,80 +187,19 @@ void ACMHotel() {
 	}
 }
 
-void FailAcmHotel() {
-	int t{}; // 테스트 데이터
-	int h{}, w{}, n{}; // 층 수, 층별 방 개수, 몇 번째 손님
-	std::cin >> t;
-	std::vector<std::vector<int>> testCase;
-	for (int i = 0; i < t; i++) {
-		std::vector<int> v;
 
-		std::cin >> h >> w >> n;
-		v.push_back(h);
-		v.push_back(w);
-		v.push_back(n);
-
-		testCase.push_back(v);
-	}
-
-	//for (int i = 0; i < testCase.size(); i++) {
-	//	for (int j = 0; j < testCase[0].size(); j++) {
-	//		std::cout << "testCase[" << i << "][" << j << "] : " << testCase[i][j] << ", ";
-	//	}
-	//	std::cout << std::endl;
-	//}
-
-	int quotient{};
-	int remain{};
-	int roomNum{};
-	for (int i = 0; i < t; i++) {
-		quotient = testCase[i][2] / testCase[i][0] + 1;
-		remain = testCase[i][2] % testCase[i][0];
-		roomNum = remain * 100 + quotient;
-		std::cout << roomNum << std::endl;
-	}
-}
-/*
-* 
-
-  	int quotient = n / h + 1;
-	int remain = n % h;
-	int roomNum = remain * 100 + quotient;
-	std::cout << roomNum << std::endl;
-
-101 201 301 ... h01
-102 202 302 ... h02
-103 203 303 ... h03
-*/
-
-
-//int WPSum(int a, int b) {
-//	// k: 0층~14층, n: 1호~14호(=> 0 1.. 14 => 15칸)
-//	const int MAX = 15;
-//	int member[MAX][MAX] = {};
-//	for (int j = 1; j < MAX; j++) {
-//		member[0][j] = j;
-//	}
-//
-//	int sum{};
-//	for (int i = 0; i < MAX; i++) {
-//		for (int j = 1; j < MAX; j++) {
-//			sum += member[i][j];
-//		}
-//	}
-//}
-
-/*
-1 1 += W(0, 1) = 0+=1 = 1
-1 2 += W
-*/
-// [실패] 8-단계 2775 부녀회장
+// 8-단계 2775 부녀회장
 void WomenPresident() {
 	const int MAX = 15;
-	int T{}; // test case
-	int k{}, n{};
+	int apart[15][15] = { 0, }; // 아파트
 
-	// 인원수
+	int T{}; // test case
+	int k{}, n{}; // k층, n호
+
+	// 0층은 i호에는 i명. 전체 층 0호는 무시
+	for (int i = 1; i < 15; i++) {
+		apart[0][i] = i;
+	}
 
 
 	// test case 입력
@@ -269,20 +208,24 @@ void WomenPresident() {
 	// 층 수, 호 수 입력
 	for (int i = 0; i < T; i++) {
 		std::cin >> k >> n;
+
+		for (int floor = 1; floor <= k; floor++) {
+			for (int ho = 1; ho <= n; ho++) {
+				apart[floor][ho] = apart[floor][ho - 1] + apart[floor - 1][ho];
+			}
+		}
+		//// 테스터
+		//for (int i = 14; i >= 0; i--) {
+		//	for (int j = 0; j < 15; j++) {
+		//		std::cout << apart[i][j] << ", ";
+		//	}
+		//	std::cout << std::endl;
+		//}
+		//std::cout << std::endl;
+		std::cout << apart[k][n] << "\n";
 	}
-
-	// 각 집들 SUM
-
-
-	//for (int i = 0; i < k; i++) {
-	//	for (int j = 0; j < n; j++) {
-	//		std::cout << i << "층 " << j << "호: " << member[i][j] << std::endl;
-	//	}
-	//}
-	//// 해당 집의 거주민 출력
-	//for (int i = 0; i < T; i++) {
-	//}
 }
+
 
 // [실패] 8-8단계 10757 큰수 A+B
 void BigSum() {
@@ -292,6 +235,6 @@ void BigSum() {
 }
 
 int main() {
-	ACMHotel();
+	WomenPresident();
 	return 0;
-}
+} 
