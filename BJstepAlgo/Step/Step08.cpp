@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 
 // 8-1단계 1712번 손익분기점
 void BreakEvenPoint()
@@ -232,20 +233,44 @@ void SugarPlant() {
 	std::cin >> N;
 	int bongji{};
 
-}
+	int tempN = N;
+	int cnt3{};
 
+	if (N % 5 == 0) {
+		bongji = N / 5;
+	}
+	else {
+		while (tempN > 0) {
+			tempN -= 3;
+			cnt3++;
+			if (tempN == 0) {
+				bongji = cnt3;
+			}
+			else {
+				if (tempN % 5 == 0) {
+					bongji = cnt3 + (tempN / 5);
+					break;
+				}
+			}
+		}
+	}
+	if (bongji == 0) {
+		bongji = -1;
+	}
+
+	std::cout << bongji;
+}
 
 // [실패] 8-8단계 10757 큰수 A+B
 void BigSum() {
-	unsigned long long int A{}, B{};
+	std::string a, b;
+	int A, B;
 	std::cin >> A >> B;
-	std::cout << A + B;
+	a = std::to_string(A);
+	b = std::to_string(B);
 }
 
 int main() {
-	while (true) {
-		SugarPlant();
-
-	}
+	BigSum();
 	return 0;
 } 
