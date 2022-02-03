@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 
 // 8-1단계 1712번 손익분기점
 void BreakEvenPoint()
@@ -121,91 +122,84 @@ void FindBunsoo() {
 	std::cout << bunja << "/" << bunmo;
 }
 
-// [실패] 8-4단계 2869 달팽이
+// [실패-시간초과] 8-4단계 2869 달팽이
 void SnailUp() {
-	int v{}; // 나무 막대 높이
-	int a{}; // 낮에 올라가는 높이
-	int b{}; // 밤에 내려오는 높이
-	std::cin >> a >> b >> v;
-	//((a-b) * (date-1)) + a >= v
-	int date{1};
-	int sum{};
+	int v{}; // 막대기 높이
+	int a{}; // 낮에 오르는 높이
+	int b{}; // 밤에 내려가는 높이
 
+	int days{};
+	std::cin >> a >> b >> v;
+	int sum{};
 	while (true) {
+		days++;
 		sum += a;
 		if (sum >= v) {
-			std::cout << date;
 			break;
 		}
-		else {
-			sum -= b;
-			date++;
-		}
+		sum -= b;
 	}
-}
 
+	std::cout << days;
+}
 void SnailUp2() {
-	int a, b, v;
+	int v{}; // 막대기 높이
+	int a{}; // 낮에 오르는 높이
+	int b{}; // 밤에 내려가는 높이
+	int days{};
 	std::cin >> a >> b >> v;
-	//((a-b) * (date-1)) + a >= v
-	int date{ 1 };
-	int k = a - b;
-	if (k > 0) {
-		date = ((v - a) / k) + 1;
-		if (((v - a) / k) >= 1) {
-			std::cout << date;
+ 
+	// 1 ≤ B < A ≤ V ≤ 1,000,000,000
+	if (a > b && v >= a) {
+		days = (v - b) / (a - b);
+
+		if ((v - b) % (a - b) != 0) { // 다음 날에 더 올라가야 할 때
+			days++;
 		}
-		else {
-			std::cout << date+1;
+	}
+
+	std::cout << days;
+	// Case 3 : 100 99 1,000,000,000 => 999,999,901
+}
+
+
+#include <vector>
+// 8-5단계 10250 ACM 호텔
+void ACMHotel() {
+	int t{}; // 테스트 데이터
+	int h{}, w{}, n{}; // 층 수, 층별 방 개수, 몇 번째 손님
+	int floor{}; // xx 나머지
+	int room{}; // yy 몫
+	int roomNum{}; // xxyy
+	std::cin >> t;
+	for (int i = 0; i < t; i++) {
+		std::cin >> h >> w >> n;
+		if (n % h == 0) {
+			floor = h;  // 층의 꼭대기에 해당할 때
+			room = n / h; // 방 호
 		}
+		else{
+			floor = n % h; // 방 층
+			room = n / h + 1; // 방 호
+		}
+		roomNum = floor * 100 + room;
+		std::cout << roomNum << std::endl;
 	}
 }
 
-void SnailUp3() {
-	int a, b, v;
-	std::cin >> a >> b >> v;
-	int k = a - b;
-	// (date)*a - (date-1) * b >= v
-	// date*(a-b) + b >= v
-	// date >= (v-b)/k
-	if (k > 0) {
-		int date = ((v - b) / k);
-		if (date <= 1) {
-			std::cout << date+1;
-		}
-		else {
-			std::cout << date;
-		}
-	}
-}
 
-//int WPSum(int a, int b) {
-//	// k: 0층~14층, n: 1호~14호(=> 0 1.. 14 => 15칸)
-//	const int MAX = 15;
-//	int member[MAX][MAX] = {};
-//	for (int j = 1; j < MAX; j++) {
-//		member[0][j] = j;
-//	}
-//
-//	int sum{};
-//	for (int i = 0; i < MAX; i++) {
-//		for (int j = 1; j < MAX; j++) {
-//			sum += member[i][j];
-//		}
-//	}
-//}
-
-/*
-1 1 += W(0, 1) = 0+=1 = 1
-1 2 += W
-*/
-// [실패] 8-단계 2775 부녀회장
+// 8-6단계 2775 부녀회장
 void WomenPresident() {
 	const int MAX = 15;
-	int T{}; // test case
-	int k{}, n{};
+	int apart[15][15] = { 0, }; // 아파트
 
-	// 인원수
+	int T{}; // test case
+	int k{}, n{}; // k층, n호
+
+	// 0층은 i호에는 i명. 전체 층 0호는 무시
+	for (int i = 1; i < 15; i++) {
+		apart[0][i] = i;
+	}
 
 
 	// test case 입력
@@ -214,29 +208,69 @@ void WomenPresident() {
 	// 층 수, 호 수 입력
 	for (int i = 0; i < T; i++) {
 		std::cin >> k >> n;
+
+		for (int floor = 1; floor <= k; floor++) {
+			for (int ho = 1; ho <= n; ho++) {
+				apart[floor][ho] = apart[floor][ho - 1] + apart[floor - 1][ho];
+			}
+		}
+		//// 테스터
+		//for (int i = 14; i >= 0; i--) {
+		//	for (int j = 0; j < 15; j++) {
+		//		std::cout << apart[i][j] << ", ";
+		//	}
+		//	std::cout << std::endl;
+		//}
+		//std::cout << std::endl;
+		std::cout << apart[k][n] << "\n";
+	}
+}
+
+
+// 8-7단계 2839 설탕배달
+void SugarPlant() {
+	int N{}; // 배달해야하는 설탕 N kg
+	std::cin >> N;
+	int bongji{};
+
+	int tempN = N;
+	int cnt3{};
+
+	if (N % 5 == 0) {
+		bongji = N / 5;
+	}
+	else {
+		while (tempN > 0) {
+			tempN -= 3;
+			cnt3++;
+			if (tempN == 0) {
+				bongji = cnt3;
+			}
+			else {
+				if (tempN % 5 == 0) {
+					bongji = cnt3 + (tempN / 5);
+					break;
+				}
+			}
+		}
+	}
+	if (bongji == 0) {
+		bongji = -1;
 	}
 
-	// 각 집들 SUM
-
-
-	//for (int i = 0; i < k; i++) {
-	//	for (int j = 0; j < n; j++) {
-	//		std::cout << i << "층 " << j << "호: " << member[i][j] << std::endl;
-	//	}
-	//}
-	//// 해당 집의 거주민 출력
-	//for (int i = 0; i < T; i++) {
-	//}
+	std::cout << bongji;
 }
 
 // [실패] 8-8단계 10757 큰수 A+B
 void BigSum() {
-	unsigned long long int A{}, B{};
+	std::string a, b;
+	int A, B;
 	std::cin >> A >> B;
-	std::cout << A + B;
+	a = std::to_string(A);
+	b = std::to_string(B);
 }
 
 int main() {
-	FindBunsoo();
+	BigSum();
 	return 0;
-}
+} 
