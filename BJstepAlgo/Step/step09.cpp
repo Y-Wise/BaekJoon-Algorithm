@@ -41,7 +41,7 @@ void FindSosu() {
 	std::cout << cntSosu;
 }
 
-// 9-2단계 2581번 소수 찾기
+// 9-2단계 2581번 소수
 void Sosu() {
 	int m{}, n{}; // M <= <= N
 	int sumSosu{}; // 소수들의 합
@@ -79,7 +79,27 @@ void Sosu() {
 	}
 }
 
+// 9-3단계 11653번 소인수분해
+void Factorization() {
+	int N{};
+	std::cin >> N;
+	int n = N;
+	int i = 2;
+	while (n != 1) {
+		//std::cout << "n: " << n << std::endl;
+		for (int i = 2; i <= n; i++) {
+			if (n % i == 0) {
+				std::cout << "i: " << i << std::endl;
+				n /= i;
+				break;
+			}
+		}
+	}
+}
+
+
+
 int main() {
-	Sosu();
+	Factorization();
 	return 0;
 }
