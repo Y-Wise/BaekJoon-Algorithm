@@ -41,7 +41,45 @@ void FindSosu() {
 	std::cout << cntSosu;
 }
 
+// 9-2단계 2581번 소수 찾기
+void Sosu() {
+	int m{}, n{}; // M <= <= N
+	int sumSosu{}; // 소수들의 합
+	int minSosu{}; // 소수 중 최소 값
+
+	std::cin >> m >> n;
+
+	int cnt{};
+	for (int num = m; num <= n; num++) {
+		if (num == 1) { // 1은 무조건 소수 아님
+		}
+		else { // 1 이외의 숫자들. 
+			for (int i = 2; i <= num; i++) {
+				if (num % i == 0) {
+					if (i != num) {
+						// 자기자신 이외의 것으로 나누어 떨어지면 소수 아니므로 종료
+						break;
+					}
+					else {
+						// 자기자신으로 나누었을 때
+						sumSosu += num;
+						if (cnt == 0) { minSosu = num; cnt++; }
+					}
+				}
+				// else: 나누어 떨어지지 않으면 다음 나누기로 넘어감
+			}
+		}
+	}
+
+	if (sumSosu == 0) {
+		std::cout << -1;
+	}
+	else {
+		std::cout << sumSosu << "\n" << minSosu;
+	}
+}
+
 int main() {
-	FindSosu();
+	Sosu();
 	return 0;
 }
