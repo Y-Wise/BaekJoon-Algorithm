@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stdio.h>
 // 9-1단계 1978번 소수 찾기
 void FindSosu() {
 	int cntSosu{};
@@ -82,7 +83,7 @@ void Factorization() {
 	}
 }
 
-// [실패-시간초과] 9-4단계 1929번 소수 구하기
+//[실패-시간초과] 9-4단계 1929번 소수 구하기
 void CheckSosu() {
 	int M = 1, N = 1;
 	std::cin >> M >> N;
@@ -94,7 +95,7 @@ void CheckSosu() {
 			for (int j = 2; j <= num; j++) {
 				if (num % j == 0) {
 					if (j != num) break; // 자기자신 이외의 것으로 나누어 떨어지면 소수 아님
-					else { std::cout << num << "\n"; } // 소수
+					else { std::cout << num << '\n'; } // 소수
 				}
 				// else{} //나누어 떨어지지 않으면 소수 아님. 다음 나누기로 넘어감
 			}
@@ -102,7 +103,36 @@ void CheckSosu() {
 	}
 }
 
+// 에라토스테네스의 체
+void Eratos(int m, int n) {
+	if (n <= 1) return;
+	bool* PrimeArray = new bool[n + 1];
+	
+	// 시작은 모든칸이 소수로 판단
+	for (int i = 2; i <= n; i++) {
+		PrimeArray[i] = true;
+	}
+
+	for(int i = 2; i * i <= n; i++) {
+		if (PrimeArray[i]) {
+			for (int j = i * i; j <= n; j += i) PrimeArray[j] = false;
+		}
+	}
+
+	for (int i = m; i <= n; i++) {
+		if (i != 1) {
+			if (PrimeArray[i]) printf("%d\n", i);
+		}
+	}
+}
+
+void CheckSosu2() {
+	int M = 1, N = 1;
+	std::cin >> M >> N;
+	Eratos(M, N);
+}
+
 int main() {
-	CheckSosu();
+	CheckSosu2();
 	return 0;
 }
