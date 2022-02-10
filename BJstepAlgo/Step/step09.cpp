@@ -103,7 +103,7 @@ void CheckSosu() {
 	}
 }
 
-// 에라토스테네스의 체
+// 9-4단계 1929번 소수 구하기 - 에라토스테네스의 체
 void Eratos(int m, int n) {
 	if (n <= 1) return;
 	bool* PrimeArray = new bool[n + 1];
@@ -125,14 +125,48 @@ void Eratos(int m, int n) {
 		}
 	}
 }
-
 void CheckSosu2() {
 	int M = 1, N = 1;
 	std::cin >> M >> N;
 	Eratos(M, N);
 }
 
+// 9-5단계 4948번 베르트랑 공준
+void EratosChea(int m, int n) {
+	if (n <= 1) return;
+	bool* PrimeArray = new bool[n + 1];
+
+	// 시작은 모든칸이 소수로 판단
+	for (int i = 2; i <= n; i++) {
+		PrimeArray[i] = true;
+	}
+
+	for (int i = 2; i * i <= n; i++) {
+		if (PrimeArray[i]) {
+			for (int j = i * i; j <= n; j += i) PrimeArray[j] = false;
+		}
+	}
+
+	int cnt{};
+	for (int i = m; i <= n; i++) {
+		if (i != 1) {
+			if (PrimeArray[i]) cnt++; 
+		}
+	}
+	printf("%d\n", cnt);
+}
+void Bertrand() {
+	// 베르트랑 공준 : n < x <= 2n인 x가 적어도 하나 존재한다.
+	int N = 1; // 1 <= N <= 123,456
+	std::cin >> N;
+	while (N != 0) {
+		EratosChea(N + 1, 2 * N);
+		std::cin >> N;
+	}
+}
+
+
 int main() {
-	CheckSosu2();
+	Bertrand();
 	return 0;
 }
