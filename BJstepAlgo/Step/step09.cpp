@@ -132,7 +132,7 @@ void CheckSosu2() {
 }
 
 // 9-5단계 4948번 베르트랑 공준
-void EratosChea(int m, int n) {
+void Eratos2(int m, int n) {
 	if (n <= 1) return;
 	bool* PrimeArray = new bool[n + 1];
 
@@ -160,13 +160,55 @@ void Bertrand() {
 	int N = 1; // 1 <= N <= 123,456
 	std::cin >> N;
 	while (N != 0) {
-		EratosChea(N + 1, 2 * N);
+		Eratos2(N + 1, 2 * N);
 		std::cin >> N;
 	}
 }
 
+// 9-6단계 9020번 골드바흐의 추측
+void GoldBahEratos3() {
+	// 4 <= n <= 10000
+	int n{};
+	int T{};
+	std::cin >> T;
+	for (int k = 0; k < T; k++) {
+		std::cin >> n;
+		if (n % 2 == 0) {
+			bool* PrimeArray = new bool[n + 1];
 
+			// 시작은 모든칸이 소수로 판단
+			for (int i = 2; i <= n; i++) {
+				PrimeArray[i] = true;
+			}
+
+			for (int i = 2; i * i <= n; i++) {
+				if (PrimeArray[i]) {
+					for (int j = i * i; j <= n; j += i) PrimeArray[j] = false;
+				}
+			}
+
+			int minA = n;
+			int minB = n;
+			int min = n;
+			for (int i = 2; i < n; i++) {
+				if (i <= n - i) {
+					if (PrimeArray[i] && PrimeArray[n - i]) {
+						if (min > n - i - i) {
+							minA = i;
+							minB = n - i;
+						}
+					}
+				}
+			}
+
+			std::cout << minA << " " << minB << "\n";
+			minA = minB = min = n;
+		}
+
+	}
+
+}
 int main() {
-	Bertrand();
+	GoldBahEratos3();
 	return 0;
 }
