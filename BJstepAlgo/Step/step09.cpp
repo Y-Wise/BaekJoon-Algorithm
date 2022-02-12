@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <stdio.h>
+#include <cmath>
+
 // 9-1단계 1978번 소수 찾기
 void FindSosu() {
 	int cntSosu{};
@@ -208,7 +210,70 @@ void GoldBahEratos3() {
 	}
 
 }
+
+
+// 9-11단계 1002번 터렛
+void Turret(){
+	int x1{}, y1{}, r1{}; //조규현
+	int x2{}, y2{}, r2{}; //백승환
+	
+	int T{}, posCnt{};
+	std::cin >> T;
+	for (int i = 0; i < T; i++) {
+		std::cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
+
+		int disPow = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+
+		int rPPow = (r1 + r2) * (r1 + r2);
+		int rMPow = (r1 - r2) * (r1 - r2);
+
+		if (disPow == 0) {
+			if (r1 == r2) posCnt = -1; // 같은 원
+			else posCnt = 0; // 동심원
+		}
+		else {
+			if (disPow == rMPow || disPow == rPPow) posCnt = 1;
+			else if (disPow < rPPow && disPow > rMPow) posCnt = 2;
+			else posCnt = 0;
+		}
+
+		std::cout << posCnt << "\n";
+	}
+}
+
+void Turret2() {
+	int x1{}, y1{}, r1{}; //조규현
+	int x2{}, y2{}, r2{}; //백승환
+	
+	int T{}, posCnt{};
+	std::cin >> T;
+	for (int i = 0; i < T; i++) {
+		std::cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
+
+		int disPow = pow(x1 - x2, 2) + pow(y1 - y2, 2);
+		float dis = sqrt(disPow);
+
+		int rPr = r1 + r2;
+
+		int rMr{};
+		if (r1 > r2) rMr = r1 - r2;
+		else rMr = r2 - r1;
+
+		if (x1 == x2 && y1 == y2) {
+			if (r1 == r2) posCnt = -1; // 같은 원
+			else posCnt = 0; // 동심원
+		}
+		else {
+			if (dis < rPr && dis > rMr) posCnt = 2;
+			else if (dis == rPr || dis == rMr)posCnt = 1;
+			else posCnt = 0;
+		}
+
+		std::cout << posCnt << "\n";
+	}
+}
+
 int main() {
-	GoldBahEratos3();
+	Turret();
 	return 0;
 }
