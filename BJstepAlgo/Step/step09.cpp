@@ -211,6 +211,26 @@ void GoldBahEratos3() {
 
 }
 
+// 9-7단계 1085번 직사각형에서 탈출
+void EscapeSquare() {
+	int x{}, y{};
+	int w{}, h{}; // 오른쪽 위 꼭짓점 1 ≤ w, h ≤ 1, 000
+	// 1 ≤ x ≤ w - 1
+	// 1 ≤ y ≤ h - 1
+
+	std::cin >> x >> y >> w >> h;
+	int disX{}, disY{};
+	if (w - x > x) disX = x;
+	else disX = w - x;
+	if (h - y > y) disY = y;
+	else disY = h - y;
+
+	int answ{};
+	if (disX > disY) answ = disY;
+	else answ = disX;
+
+	std::cout << answ;
+}
 
 // 9-11단계 1002번 터렛
 void Turret(){
@@ -240,7 +260,6 @@ void Turret(){
 		std::cout << posCnt << "\n";
 	}
 }
-
 void Turret2() {
 	int x1{}, y1{}, r1{}; //조규현
 	int x2{}, y2{}, r2{}; //백승환
@@ -274,6 +293,6 @@ void Turret2() {
 }
 
 int main() {
-	Turret();
+	EscapeSquare();
 	return 0;
 }
