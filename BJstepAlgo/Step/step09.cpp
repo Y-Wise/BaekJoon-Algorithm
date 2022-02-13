@@ -232,6 +232,39 @@ void EscapeSquare() {
 	std::cout << answ;
 }
 
+// 9-8단계 3009번 네 번째 점
+void FourthDot() {
+	int dots[4][2] = { 0 };
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			std::cin >> dots[i][j];
+		}
+	}
+	
+	dots[3][1] = 0;
+	if (dots[0][0] == dots[1][0]) {
+		dots[3][0] = dots[2][0];
+	}
+	else if (dots[0][0] == dots[2][0]) {
+		dots[3][0] = dots[1][0];
+	}
+	else {
+		dots[3][0] = dots[0][0];
+	}
+
+	if (dots[0][1] == dots[1][1]) {
+		dots[3][1] = dots[2][1];
+	}
+	else if (dots[0][1] == dots[2][1]) {
+		dots[3][1] = dots[1][1];
+	}
+	else {
+		dots[3][1] = dots[0][1];
+	}
+
+	std::cout << dots[3][0] << " " << dots[3][1];
+}
+
 // 9-11단계 1002번 터렛
 void Turret(){
 	int x1{}, y1{}, r1{}; //조규현
@@ -293,6 +326,6 @@ void Turret2() {
 }
 
 int main() {
-	EscapeSquare();
+	FourthDot();
 	return 0;
 }
