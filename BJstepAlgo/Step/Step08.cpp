@@ -269,8 +269,3 @@ void BigSum() {
 	a = std::to_string(A);
 	b = std::to_string(B);
 }
-
-int main() {
-	BigSum();
-	return 0;
-} 
