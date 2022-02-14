@@ -1,8 +1,8 @@
 #include <iostream>
-#include <vector>
 #include <stdio.h>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+
 // 9-1단계 1978번 소수 찾기
 void FindSosu() {
 	int cntSosu{};
@@ -265,7 +265,7 @@ void FourthDot() {
 	std::cout << dots[3][0] << " " << dots[3][1];
 }
 
-// 9-9단계 3009번 직각삼각형
+// 9-9단계 4153번 직각삼각형
 void RightTri() {
 	int triLengths[3];
 	while (true) {
@@ -282,7 +282,15 @@ void RightTri() {
 	}
 }
 
-
+#define PI 3.1415926535897932
+// 9-10단계 3053번 택시 기하학
+void TaxiGeom() {
+	double r{};
+	std::cin >> r;
+	std::cout << std::fixed;
+	std::cout.precision(6);
+	std::cout << r * r * PI << "\n" << 2 * r * r << "\n";
+}
 
 // 9-11단계 1002번 터렛
 void Turret(){
@@ -345,6 +353,6 @@ void Turret2() {
 }
 
 int main() {
-	RightTri();
+	TaxiGeom();
 	return 0;
 }
