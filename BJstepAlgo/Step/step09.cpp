@@ -2,7 +2,7 @@
 #include <vector>
 #include <stdio.h>
 #include <cmath>
-
+#include <algorithm>
 // 9-1단계 1978번 소수 찾기
 void FindSosu() {
 	int cntSosu{};
@@ -265,6 +265,25 @@ void FourthDot() {
 	std::cout << dots[3][0] << " " << dots[3][1];
 }
 
+// 9-9단계 3009번 직각삼각형
+void RightTri() {
+	int triLengths[3];
+	while (true) {
+		for (int i = 0; i < 3; i++) {
+			std::cin >> triLengths[i];
+		}
+		if (triLengths[0] == 0 && triLengths[1] == 0 && triLengths[2] == 0) break;
+
+
+		std::sort(triLengths, triLengths+3);
+
+		if (pow(triLengths[0], 2) + pow(triLengths[1], 2) == pow(triLengths[2], 2)) std::cout << "right\n";
+		else std::cout << "wrong\n";
+	}
+}
+
+
+
 // 9-11단계 1002번 터렛
 void Turret(){
 	int x1{}, y1{}, r1{}; //조규현
@@ -326,6 +345,6 @@ void Turret2() {
 }
 
 int main() {
-	FourthDot();
+	RightTri();
 	return 0;
 }
