@@ -87,6 +87,13 @@ void Surprise() {
 	std::cout << id << "??!";
 }
 
+//1-11단계 13265
+void TailandYear() {
+	int y{};
+	std::cin >> y;
+	std::cout << y - 543;
+}
+
 //1-12단계 10430
 void Remain() {
 	int A, B, C;
