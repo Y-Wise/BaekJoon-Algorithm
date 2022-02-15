@@ -80,6 +80,12 @@ void FourCalcul() {
 		<< a % b << endl;
 }
 
+//1-10단계 10926
+void Surprise() {
+	std::string id{};
+	std::cin >> id;
+	std::cout << id << "??!";
+}
 
 //1-12단계 10430
 void Remain() {
