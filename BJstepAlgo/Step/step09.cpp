@@ -351,8 +351,3 @@ void Turret2() {
 		std::cout << posCnt << "\n";
 	}
 }
-
-int main() {
-	TaxiGeom();
-	return 0;
-}

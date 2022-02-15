@@ -80,7 +80,8 @@ void FourCalcul() {
 		<< a % b << endl;
 }
 
-//1-10단계 10430
+
+//1-12단계 10430
 void Remain() {
 	int A, B, C;
 	cin >> A >> B >> C;
@@ -90,7 +91,7 @@ void Remain() {
 		<< ((A % C) * (B % C)) % C << endl;
 }
 
-//1-11단계 2588
+//1-13단계 2588
 void Multiplication() {
 	int a, b;
 	cin >> a;
