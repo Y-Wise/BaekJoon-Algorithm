@@ -48,8 +48,3 @@ void ThreeDice() {
 	std::cout << reward << "\n";
 }
 
-int main() {
-	while (1) {
-		ThreeDice();
-	}
-}

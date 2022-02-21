@@ -57,6 +57,9 @@
     <ClCompile Include="Step\Step02.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Step\Step11.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tutoring2021\Tutoring21.h">
