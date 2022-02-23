@@ -26,6 +26,39 @@ void BlackJack() {
 	std::cout << max << "\n";
 }
 
+//11-3단계 7568
+void Bulk() {
+	int N{}; // 사람의 수
+	int x_weight{}, y_height{}; // 몸무게, 키
+	std::cin >> N;
+
+	std::vector<int> xAll;
+	std::vector<int> yAll;
+
+	for (int i = 0; i < N; i++) {
+		std::cin >> x_weight >> y_height;
+
+		xAll.push_back(x_weight);
+		yAll.push_back(y_height);
+	}
+
+	std::vector<int> rankAll(N, 1);
+	
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			if (xAll[i] < xAll[j]) {
+				if (yAll[i] < yAll[j]) {
+					rankAll[i]++;
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < N; i++) {
+		std::cout << rankAll[i] << " ";
+	}
+}
 
 int main() {
+	Bulk();
 }
