@@ -45,12 +45,6 @@
     <ClCompile Include="Tutoring2021\Tutoring21.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Algorithm.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="BruteforceAlgo.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Step\step09.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>

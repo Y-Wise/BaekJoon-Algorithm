@@ -143,8 +143,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Algorithm.cpp" />
-    <ClCompile Include="BruteforceAlgo.cpp" />
     <ClCompile Include="Step\Step01.cpp" />
     <ClCompile Include="Step\Step02.cpp" />
     <ClCompile Include="Step\Step03.cpp" />

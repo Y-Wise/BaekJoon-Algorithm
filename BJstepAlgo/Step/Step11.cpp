@@ -26,6 +26,7 @@ void BlackJack() {
 	std::cout << max << "\n";
 }
 
+
 //11-3단계 7568
 void Bulk() {
 	int N{}; // 사람의 수
@@ -59,6 +60,32 @@ void Bulk() {
 	}
 }
 
+
+//11-4단계 1018
+void PaintChess() {
+	int M{}, N{};
+	std::cin >> M >> N;
+
+	char** chessArr = new char* [M];
+
+	for (int i = 0; i < M; i++) {
+		chessArr[i] = new char[N];
+	}
+
+	for (int i = 0; i < M; i++) {
+		for (int j = 0; j < N; j++) {
+			std::cin >> chessArr[i][j];
+		}
+	}
+
+
+	for (int i = 0; i < M; i++) {
+		delete[] chessArr[i];
+	}
+	delete[] chessArr;
+}
+
+
 int main() {
-	Bulk();
+	PaintChess();
 }
